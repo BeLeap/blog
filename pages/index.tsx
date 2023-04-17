@@ -1,11 +1,8 @@
 import fs from "fs/promises"
 import path from "path"
-import { Inter } from 'next/font/google'
 import matter from "gray-matter"
 import Link from "next/link"
 import { filenameToSlug, getPostFilenames } from "@/utils/posts"
-
-const inter = Inter({ subsets: ['latin'] })
 
 type HomeProps = {
   posts: {
@@ -17,7 +14,7 @@ type HomeProps = {
 export default function Home({ posts }: HomeProps) {
   return (
     <>
-      <h1 className={`${inter.className}`}>Posts</h1>
+      <h1>Posts</h1>
       {
         posts.map((post, index) => (
           <Link
