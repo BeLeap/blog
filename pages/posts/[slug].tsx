@@ -13,6 +13,7 @@ import Head from "next/head"
 import remarkToc from "remark-toc"
 import rehypeAutolinkHeadings from "rehype-autolink-headings/lib"
 import rehypeSlug from "rehype-slug"
+import rehypeRewrite from "rehype-rewrite"
 
 type PostProps = {
   post: {
@@ -73,9 +74,7 @@ export default function Post({ post }: PostProps) {
             </Link>
           </div>
 
-          <h1
-            className="text-4xl mt-5 my-2 font-bold"
-          >
+          <h1>
             {post.metadata.title}
           </h1>
           <time
@@ -85,9 +84,7 @@ export default function Post({ post }: PostProps) {
             {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
           </time>
           <br />
-          <p
-            className="my-10"
-          >
+          <p>
             <div
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
@@ -123,7 +120,20 @@ export async function getStaticProps(context: { params: { slug: string } }) {
     .use(remarkHtml)
     .use(remarkRehype)
     .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings)
+    .use(rehypeAutolinkHeadings, {
+      behavior: "wrap",
+    })
+    .use(rehypeRewrite, {
+      rewrite: (node) => {
+        if (node.type === "element" && node.properties !== undefined && node.tagName.startsWith("h")) {
+          node.children.forEach((child) => {
+            if (child.type === "element" && child.tagName === "a" && child.properties !== undefined) {
+              child.properties.style = `text-decoration: none; color: ${palette.variants.mocha.text.hex}`
+            }
+          })
+        }
+      }
+    })
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(content)
