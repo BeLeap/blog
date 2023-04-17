@@ -3,9 +3,9 @@ export default function Layout(props: any) {
 
   return (
     <>
-      <div>Navigation</div>
+      <header>Navigation</header>
       {props.children}
-      <div>Footer</div>
+      <footer>Footer</footer>
     </>
   )
 }
