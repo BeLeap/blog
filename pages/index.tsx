@@ -1,5 +1,5 @@
-import fs from "node:fs/promises"
-import path from "node:path"
+import fs from "fs/promises"
+import path from "path"
 import { Inter } from 'next/font/google'
 import matter from "gray-matter"
 import Link from "next/link"
@@ -31,11 +31,11 @@ export default function Home({ posts }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const files = await fs.readdir(path.join(process.cwd(), 'pages/posts'))
+  const files = await fs.readdir(path.join(process.cwd(), 'posts'))
 
   const postsPromises = files
     .map(async (filename) => {
-      const markdown = await fs.readFile(path.join(process.cwd(), 'pages/posts', filename), { encoding: 'utf8' })
+      const markdown = await fs.readFile(path.join(process.cwd(), 'posts', filename), { encoding: 'utf8' })
       const { data: frontMatter } = matter(markdown)
 
       return {
