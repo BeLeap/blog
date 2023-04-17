@@ -11,6 +11,8 @@ import rehypeHighlight from "rehype-highlight/lib"
 import palette from "@catppuccin/palette"
 import Head from "next/head"
 import remarkToc from "remark-toc"
+import rehypeAutolinkHeadings from "rehype-autolink-headings/lib"
+import rehypeSlug from "rehype-slug"
 
 type PostProps = {
   post: {
@@ -116,10 +118,12 @@ export async function getStaticProps(context: { params: { slug: string } }) {
   const contentRaw = await getPostContent(slugToFilename(slug))
   const { data: metadata, content } = matter(contentRaw)
   const htmlVFile = await unified()
-    .use(remarkParse)
     .use(remarkToc)
+    .use(remarkParse)
     .use(remarkHtml)
     .use(remarkRehype)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings)
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(content)
