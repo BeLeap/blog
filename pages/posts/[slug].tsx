@@ -1,11 +1,12 @@
 import { filenameToSlug, getPostContent, getPostFilenames, slugToFilename } from "@/utils/posts"
 import matter from "gray-matter"
+import { remark } from "remark"
+import remarkHtml from "remark-html"
 
 type PostProps = {
   post: {
     frontMatter: { [key: string]: any },
-    title: string,
-    content: string,
+    html: string,
   },
 }
 
@@ -13,7 +14,8 @@ export default function Post({ post }: PostProps) {
   return (
     <>
       <h1>{post.frontMatter.title}</h1>
-      <p>{post.content}</p>
+      <br />
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </>
   )
 }
@@ -35,14 +37,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { slug: string } }) {
   const { slug } = context.params
-  const content = await getPostContent(slugToFilename(slug))
-  const { data: frontMatter } = matter(content)
+  const contentRaw = await getPostContent(slugToFilename(slug))
+  const { data: metadata, content } = matter(contentRaw)
+  const html = (await remark().use(remarkHtml).process(content)).toString();
 
   return {
     props: {
       post: {
-        frontMatter,
-        content,
+        frontMatter: metadata,
+        html,
       }
     },
   }
