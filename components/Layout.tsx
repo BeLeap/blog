@@ -11,7 +11,9 @@ export default function Layout({ children }: { children: ReactNode }) {
       />
       <main
         className="flex-1 flex-col flex flex-wrap items-start justify-start w-full"
-      >{children}</main>
+      >
+        {children}
+      </main>
       <footer className="">Footer</footer>
     </div>
   )
