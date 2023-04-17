@@ -2,7 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
 import Link from "next/link"
-import { filenameToSlug, getPostFilenames } from "@/utils/posts"
+import { filenameToSlug, generateSummary, getPostFilenames } from "@/utils/posts"
 import Layout from "@/components/Layout"
 
 type HomeProps = {
@@ -11,6 +11,7 @@ type HomeProps = {
     metadata: {
       title: string,
       published_at: string,
+      summary: string,
     }
   }[]
 }
@@ -23,10 +24,9 @@ export default function Home({ posts }: HomeProps) {
           const publishedAt = new Date(post.metadata.published_at)
 
           return (
-            <Link
+            <div
               className="flex flex-col w-full px-5"
               key={index}
-              href={`posts/${post.slug}`}
             >
               <h2
                 className="my-2 text-2xl font-bold"
@@ -34,12 +34,26 @@ export default function Home({ posts }: HomeProps) {
                 {post.metadata.title}
               </h2>
 
-              <p
-                className="my-2"
+              <time
+                dateTime={publishedAt.toISOString()}
+                className="my-0 text-subtext0"
               >
                 {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
+              </time>
+
+              <p
+                className="my-3 text-lg text-text"
+              >
+                {post.metadata.summary}
               </p>
-            </Link>
+
+              <Link
+                href={`posts/${post.slug}`}
+                className="underline"
+              >
+                Read more
+              </Link>
+            </div>
           )
         })
       }

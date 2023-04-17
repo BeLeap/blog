@@ -5,7 +5,6 @@ const postRoot = path.join(process.cwd(), 'posts')
 
 export const getPostFilenames = async (): Promise<string[]> => fs.readdir(postRoot)
 
-
 export const filenameToSlug = (filename: string): string => filename.split('.')[0]
 
 export const slugToFilename = (slug: string): string => `${slug}.md`
