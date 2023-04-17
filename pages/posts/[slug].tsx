@@ -33,8 +33,9 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(context) {
-  const content = await getPostContent(slugToFilename(context.params.slug))
+export async function getStaticProps(context: { params: { slug: string } }) {
+  const { slug } = context.params
+  const content = await getPostContent(slugToFilename(slug))
   const { data: frontMatter } = matter(content)
 
   return {
