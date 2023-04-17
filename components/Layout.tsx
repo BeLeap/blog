@@ -5,6 +5,7 @@ export default function Layout(props: any) {
     <>
       <div>Navigation</div>
       {props.children}
+      <div>Footer</div>
     </>
   )
 }
