@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export default function Header() {
   return (
-    <header className="flex flex-col items-center m-10">
+    <header className="flex flex-col items-center m-5 mt-10">
       <Image
         className="rounded-full"
         alt="Profile Image"
