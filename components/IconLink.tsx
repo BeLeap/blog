@@ -12,7 +12,7 @@ export default function IconLink({ href, icon }: IconLinkProps) {
       className="flex items-center justify-center mx-auto"
       href={href}
     >
-      <div className="rounded-full mx-2 bg-[#6c7086] p-2">
+      <div className="rounded-full mx-2 bg-surface2 p-2">
         {icon}
       </div>
     </Link>

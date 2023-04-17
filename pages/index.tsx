@@ -10,6 +10,7 @@ type HomeProps = {
     slug: string,
     metadata: {
       title: string,
+      published_at: string,
     }
   }[]
 }
@@ -18,19 +19,29 @@ export default function Home({ posts }: HomeProps) {
   return (
     <Layout>
       {
-        posts.map((post, index) => (
-          <Link
-            className="flex w-full"
-            key={index}
-            href={`posts/${post.slug}`}
-          >
-            <h2
-              className="m-5 text-2xl font-bold"
+        posts.map((post, index) => {
+          const publishedAt = new Date(post.metadata.published_at)
+
+          return (
+            <Link
+              className="flex flex-col w-full px-5"
+              key={index}
+              href={`posts/${post.slug}`}
             >
-              {post.metadata.title}
-            </h2>
-          </Link>
-        ))
+              <h2
+                className="my-2 text-2xl font-bold"
+              >
+                {post.metadata.title}
+              </h2>
+
+              <p
+                className="my-2"
+              >
+                {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
+              </p>
+            </Link>
+          )
+        })
       }
     </Layout>
   )
@@ -50,7 +61,21 @@ export async function getStaticProps() {
       }
     })
 
-  const posts = await Promise.all(postmetaPromises)
+  const postsUnsorted = await Promise.all(postmetaPromises)
+  const posts = postsUnsorted.sort((a, b) => {
+    const aPublishedAt = new Date(a.metadata.published_at)
+    const bPublishedAt = new Date(b.metadata.published_at)
+
+    if (aPublishedAt < bPublishedAt) {
+      return -1
+    }
+
+    if (aPublishedAt > bPublishedAt) {
+      return 1
+    }
+
+    return 0
+  })
 
   return {
     props: {
