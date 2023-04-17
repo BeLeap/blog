@@ -1,7 +1,7 @@
 import { filenameToSlug, getPostFilenames } from "@/utils/posts"
 import { GetServerSideProps } from "next"
 
-const host = "https://beleap.dev"
+const host = "https://www.beleap.dev"
 
 function generateSiteMap(slugs: string[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
