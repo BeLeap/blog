@@ -3,11 +3,13 @@ import path from "path"
 import { Inter } from 'next/font/google'
 import matter from "gray-matter"
 import Link from "next/link"
+import { filenameToSlug, getPostFilenames } from "@/utils/posts"
 
 const inter = Inter({ subsets: ['latin'] })
 
 type HomeProps = {
   posts: {
+    title: string,
     slug: string,
   }[]
 }
@@ -31,20 +33,20 @@ export default function Home({ posts }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const files = await fs.readdir(path.join(process.cwd(), 'posts'))
+  const filenames = await getPostFilenames()
 
-  const postsPromises = files
+  const postmetaPromises = filenames
     .map(async (filename) => {
       const markdown = await fs.readFile(path.join(process.cwd(), 'posts', filename), { encoding: 'utf8' })
       const { data: frontMatter } = matter(markdown)
 
       return {
         frontMatter,
-        slug: filename.split('.')[0],
+        slug: filenameToSlug(filename),
       }
     })
 
-  const posts = await Promise.all(postsPromises)
+  const posts = await Promise.all(postmetaPromises)
 
   return {
     props: {
