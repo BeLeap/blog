@@ -7,22 +7,28 @@ import Layout from "@/components/Layout"
 
 type HomeProps = {
   posts: {
-    title: string,
     slug: string,
+    metadata: {
+      title: string,
+    }
   }[]
 }
 
 export default function Home({ posts }: HomeProps) {
   return (
     <Layout>
-      <h1>Posts</h1>
       {
         posts.map((post, index) => (
           <Link
+            className="flex w-full"
             key={index}
             href={`posts/${post.slug}`}
           >
-            {post.slug}
+            <h2
+              className="m-5 text-2xl font-bold"
+            >
+              {post.metadata.title}
+            </h2>
           </Link>
         ))
       }
@@ -36,10 +42,10 @@ export async function getStaticProps() {
   const postmetaPromises = filenames
     .map(async (filename) => {
       const markdown = await fs.readFile(path.join(process.cwd(), 'posts', filename), { encoding: 'utf8' })
-      const { data: frontMatter } = matter(markdown)
+      const { data: metadata } = matter(markdown)
 
       return {
-        frontMatter,
+        metadata,
         slug: filenameToSlug(filename),
       }
     })

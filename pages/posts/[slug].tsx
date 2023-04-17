@@ -5,7 +5,7 @@ import remarkHtml from "remark-html"
 
 type PostProps = {
   post: {
-    frontMatter: { [key: string]: any },
+    metadta: { [key: string]: any },
     html: string,
   },
 }
@@ -13,7 +13,7 @@ type PostProps = {
 export default function Post({ post }: PostProps) {
   return (
     <>
-      <h1>{post.frontMatter.title}</h1>
+      <h1>{post.metadta.title}</h1>
       <br />
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </>
@@ -44,7 +44,7 @@ export async function getStaticProps(context: { params: { slug: string } }) {
   return {
     props: {
       post: {
-        frontMatter: metadata,
+        metadata,
         html,
       }
     },

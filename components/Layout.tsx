@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         className="border-[#6c7086] w-full my-5"
       />
       <main
-        className="flex-1 flex-col flex flex-wrap items-top justify-content"
+        className="flex-1 flex-col flex flex-wrap items-start justify-start w-full"
       >{children}</main>
       <footer className="">Footer</footer>
     </div>
