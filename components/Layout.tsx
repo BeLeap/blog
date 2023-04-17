@@ -1,10 +1,14 @@
-export default function Layout(props: any) {
-  console.log(props)
+import { ReactNode } from "react";
+import Header from "./Header";
+
+export default function Layout({ children }: { children: ReactNode }) {
 
   return (
-    <div className="flex flex-col min-h-screen container mx-auto">
-      <header className="">Navigation</header>
-      <main className="flex-1 flex-col flex flex-wrap items-top justify-content">{props.children}</main>
+    <div className="flex flex-col min-h-screen items-center justify-center container mx-auto">
+      <Header />
+      <main
+        className="flex-1 flex-col flex flex-wrap items-top justify-content"
+      >{children}</main>
       <footer className="">Footer</footer>
     </div>
   )

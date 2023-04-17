@@ -3,6 +3,7 @@ import path from "path"
 import matter from "gray-matter"
 import Link from "next/link"
 import { filenameToSlug, getPostFilenames } from "@/utils/posts"
+import Layout from "@/components/Layout"
 
 type HomeProps = {
   posts: {
@@ -13,7 +14,7 @@ type HomeProps = {
 
 export default function Home({ posts }: HomeProps) {
   return (
-    <>
+    <Layout>
       <h1>Posts</h1>
       {
         posts.map((post, index) => (
@@ -25,7 +26,7 @@ export default function Home({ posts }: HomeProps) {
           </Link>
         ))
       }
-    </>
+    </Layout>
   )
 }
 
