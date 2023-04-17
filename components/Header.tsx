@@ -32,10 +32,13 @@ export default function Header() {
       />
       <ul
         style={{
-          margin: "1rem",
-          listStyle: "inside",
+          margin: 0,
+          padding: 0,
+          marginTop: "1rem",
+          marginBottom: "1rem",
           fontSize: "1.125rem",
           lineHeight: "1.75rem",
+          listStylePosition: "inside",
         }}
       >
         <li>
