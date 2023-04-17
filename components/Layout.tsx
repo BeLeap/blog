@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Layout({ children }: { children: ReactNode }) {
 
@@ -7,16 +8,16 @@ export default function Layout({ children }: { children: ReactNode }) {
     <div
       style={{
         display: "flex",
+        minHeight: "calc(100vh - 1rem)",
         flexDirection: "column",
         alignItems: "center",
-        justifyItems: "center",
+        justifyContent: "space-between",
         marginLeft: "auto",
         marginRight: "auto",
       }}
     >
       <Header />
       <main
-        className="flex-1 flex-col flex flex-wrap items-start justify-start w-full max-w-xl"
         style={{
           flex: "1",
           display: "flex",
@@ -28,7 +29,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       >
         {children}
       </main>
-      <footer className="">Footer</footer>
+      <Footer />
     </div>
   )
 }
