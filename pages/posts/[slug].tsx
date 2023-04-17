@@ -9,6 +9,7 @@ import remarkRehype from "remark-rehype/lib"
 import rehypeStringify from "rehype-stringify"
 import rehypeHighlight from "rehype-highlight/lib"
 import palette from "@catppuccin/palette"
+import Head from "next/head"
 
 type PostProps = {
   post: {
@@ -21,68 +22,76 @@ export default function Post({ post }: PostProps) {
   const publishedAt = new Date(post.metadata.published_at)
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <>
+      <Head>
+        <title>{post.metadata.title}</title>
+        <meta property="og:title" content={post.metadata.title} key="title" />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:image" content="/profile.png" />
+      </Head>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          alignContent: "start",
-          maxWidth: "64rem",
+          alignItems: "center",
         }}
       >
         <div
           style={{
-            paddingTop: 10,
-            paddingBottom: 10,
-            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignContent: "start",
+            maxWidth: "64rem",
           }}
         >
-          <Link
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              color: palette.variants.mocha.subtext0.hex,
-            }}
-            href="/"
-          >
-            <MdArrowBack
-              style={{
-                fill: palette.variants.mocha.subtext0.hex,
-                stroke: palette.variants.mocha.subtext0.hex,
-              }}
-            />
-            {"Home"}
-          </Link>
-        </div>
-
-        <h1
-          className="text-4xl mt-5 my-2 font-bold"
-        >
-          {post.metadata.title}
-        </h1>
-        <time
-          dateTime={publishedAt.toISOString()}
-          className="my-0 text-subtext0"
-        >
-          {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
-        </time>
-        <br />
-        <p
-          className="my-10"
-        >
           <div
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
-        </p>
+            style={{
+              paddingTop: 10,
+              paddingBottom: 10,
+              width: "100%",
+            }}
+          >
+            <Link
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                color: palette.variants.mocha.subtext0.hex,
+              }}
+              href="/"
+            >
+              <MdArrowBack
+                style={{
+                  fill: palette.variants.mocha.subtext0.hex,
+                  stroke: palette.variants.mocha.subtext0.hex,
+                }}
+              />
+              {"Home"}
+            </Link>
+          </div>
+
+          <h1
+            className="text-4xl mt-5 my-2 font-bold"
+          >
+            {post.metadata.title}
+          </h1>
+          <time
+            dateTime={publishedAt.toISOString()}
+            className="my-0 text-subtext0"
+          >
+            {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
+          </time>
+          <br />
+          <p
+            className="my-10"
+          >
+            <div
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -4,6 +4,7 @@ import matter from "gray-matter"
 import Link from "next/link"
 import { filenameToSlug, generateSummary, getPostFilenames } from "@/utils/posts"
 import Layout from "@/components/Layout"
+import Head from "next/head"
 
 type HomeProps = {
   posts: {
@@ -19,6 +20,13 @@ type HomeProps = {
 export default function Home({ posts }: HomeProps) {
   return (
     <Layout>
+      <Head>
+        <title>BeLeap Blog</title>
+        <link rel="shortcut icon" href="/profile.png" />
+        <meta property="og:title" content="BeLeap Blog" key="title" />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:image" content="/profile.png" />
+      </Head>
       {
         posts.map((post, index) => {
           const publishedAt = new Date(post.metadata.published_at)
