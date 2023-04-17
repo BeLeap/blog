@@ -42,6 +42,7 @@ export default function Post({ post }: PostProps) {
             flexDirection: "column",
             alignContent: "start",
             maxWidth: "64rem",
+            margin: "1rem",
           }}
         >
           <div
