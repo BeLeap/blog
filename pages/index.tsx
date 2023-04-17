@@ -5,6 +5,7 @@ import Link from "next/link"
 import { filenameToSlug, getPostFilenames } from "@/utils/posts"
 import Layout from "@/components/Layout"
 import Head from "next/head"
+import palette from "@catppuccin/palette"
 
 type HomeProps = {
   posts: {
@@ -33,11 +34,21 @@ export default function Home({ posts }: HomeProps) {
 
           return (
             <nav
-              className="flex flex-col w-full px-5 my-5"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                paddingLeft: 5,
+                paddingRight: 5,
+                marginTop: 5,
+                marginBottom: 5,
+              }}
               key={index}
             >
               <h2
-                className="my-2 text-2xl font-bold"
+                style={{
+                  marginBottom: 2,
+                }}
               >
                 {post.metadata.title}
               </h2>
@@ -45,19 +56,27 @@ export default function Home({ posts }: HomeProps) {
               <time
                 dateTime={publishedAt.toISOString()}
                 className="my-0 text-subtext0"
+                style={{
+                  marginTop: 2,
+                  color: palette.variants.mocha.subtext0.hex,
+                }}
               >
                 {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
               </time>
 
               <p
-                className="my-3 text-lg text-text"
+                style={{
+                  marginTop: "1rem",
+                  fontSize: "1.125rem",
+                  lineHeight: "1.75rem",
+                  marginBottom: 2,
+                }}
               >
                 {post.metadata.summary}
               </p>
 
               <Link
                 href={`posts/${post.slug}`}
-                className="underline"
               >
                 Read more
               </Link>
@@ -65,7 +84,7 @@ export default function Home({ posts }: HomeProps) {
           )
         })
       }
-    </Layout>
+    </Layout >
   )
 }
 
