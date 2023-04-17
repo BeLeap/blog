@@ -4,7 +4,7 @@ export default function Layout(props: any) {
   return (
     <>
       <header>Navigation</header>
-      {props.children}
+      <main>{props.children}</main>
       <footer>Footer</footer>
     </>
   )
