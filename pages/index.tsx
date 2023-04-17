@@ -2,7 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
 import Link from "next/link"
-import { filenameToSlug, generateSummary, getPostFilenames } from "@/utils/posts"
+import { filenameToSlug, getPostFilenames } from "@/utils/posts"
 import Layout from "@/components/Layout"
 import Head from "next/head"
 
