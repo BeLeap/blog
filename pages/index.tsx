@@ -76,20 +76,22 @@ export async function getStaticProps() {
     })
 
   const postsUnsorted = await Promise.all(postmetaPromises)
-  const posts = postsUnsorted.sort((a, b) => {
-    const aPublishedAt = new Date(a.metadata.published_at)
-    const bPublishedAt = new Date(b.metadata.published_at)
+  const posts = postsUnsorted
+    .sort((a, b) => {
+      const aPublishedAt = new Date(a.metadata.published_at)
+      const bPublishedAt = new Date(b.metadata.published_at)
 
-    if (aPublishedAt < bPublishedAt) {
-      return -1
-    }
+      if (aPublishedAt < bPublishedAt) {
+        return -1
+      }
 
-    if (aPublishedAt > bPublishedAt) {
-      return 1
-    }
+      if (aPublishedAt > bPublishedAt) {
+        return 1
+      }
 
-    return 0
-  })
+      return 0
+    })
+    .reverse()
 
   return {
     props: {
