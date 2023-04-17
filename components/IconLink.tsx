@@ -1,3 +1,4 @@
+import palette from "@catppuccin/palette"
 import Link from "next/link"
 import { ReactNode } from "react"
 
@@ -9,12 +10,17 @@ type IconLinkProps = {
 export default function IconLink({ href, icon }: IconLinkProps) {
   return (
     <Link
-      className="flex items-center justify-center mx-auto"
+      style={{
+        display: "flex",
+        borderRadius: 9999,
+        padding: "0.5rem",
+        marginLeft: "0.5rem",
+        marginRight: "0.5rem",
+        backgroundColor: palette.variants.mocha.surface2.hex,
+      }}
       href={href}
     >
-      <div className="rounded-full mx-2 bg-surface2 p-2">
-        {icon}
-      </div>
+      {icon}
     </Link>
   )
 }

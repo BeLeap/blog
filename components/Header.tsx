@@ -3,18 +3,40 @@ import { FaGithub, FaTwitter } from "react-icons/fa"
 import { MdAlternateEmail } from "react-icons/md"
 import IconLink from "./IconLink"
 import Link from "next/link"
+import palette from "@catppuccin/palette"
 
 export default function Header() {
   return (
-    <header className="flex flex-col items-center p-5 mt-10 border-solid border-b-2 border-overlay2">
+    <header
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "1rem",
+        paddingLeft: "10rem",
+        paddingRight: "10rem",
+        marginTop: "3rem",
+        borderBottomStyle: "solid",
+        borderBottomWidth: "2px",
+        borderBottomColor: palette.variants.mocha.overlay2.hex,
+        marginBottom: "1.5rem",
+      }}
+    >
       <Image
-        className="rounded-full"
+        style={{
+          borderRadius: "100%",
+        }}
         alt="Profile Image"
         width="100" height="100"
         src="/profile.png"
       />
       <ul
-        className="m-5 list-disc text-lg"
+        style={{
+          margin: "1rem",
+          listStyle: "inside",
+          fontSize: "1.125rem",
+          lineHeight: "1.75rem",
+        }}
       >
         <li>
           DevOps Engineer at <Link href="https://riiid.com">Riiid</Link>
@@ -22,7 +44,15 @@ export default function Header() {
         <li>
           Loves <Link href="https://neovim.io">Neovim</Link>, <Link href="https://www.rust-lang.org/">Rust</Link></li>
       </ul>
-      <div className="flex">
+      <div
+        style={{
+          display: "flex",
+          width: "80%",
+          alignContent: "center",
+          justifyContent: "space-evenly",
+          marginBottom: "1rem",
+        }}
+      >
         <IconLink
           href="mailto:beleap@beleap.dev"
           icon={<MdAlternateEmail />}

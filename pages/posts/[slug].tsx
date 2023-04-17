@@ -1,9 +1,14 @@
 import { filenameToSlug, getPostContent, getPostFilenames, slugToFilename } from "@/utils/posts"
 import matter from "gray-matter"
 import Link from "next/link"
-import { remark } from "remark"
 import remarkHtml from "remark-html"
 import { MdArrowBack } from "react-icons/md"
+import { unified } from "unified"
+import remarkParse from "remark-parse"
+import remarkRehype from "remark-rehype/lib"
+import rehypeStringify from "rehype-stringify"
+import rehypeHighlight from "rehype-highlight/lib"
+import palette from "@catppuccin/palette"
 
 type PostProps = {
   post: {
@@ -17,35 +22,66 @@ export default function Post({ post }: PostProps) {
 
   return (
     <div
-      className="flex flex-col items-start container mx-auto max-w-xl"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
     >
       <div
-        className="w-full"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "start",
+          maxWidth: "64rem",
+        }}
       >
-        <Link
-          className="inline-flex items-center gap-1 text-subtext0"
-          href="/"
+        <div
+          style={{
+            paddingTop: 10,
+            paddingBottom: 10,
+            width: "100%",
+          }}
         >
-          <MdArrowBack className="fill-subtext0" />
-          {"Home"}
-        </Link>
-      </div>
+          <Link
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              color: palette.variants.mocha.subtext0.hex,
+            }}
+            href="/"
+          >
+            <MdArrowBack
+              style={{
+                fill: palette.variants.mocha.subtext0.hex,
+                stroke: palette.variants.mocha.subtext0.hex,
+              }}
+            />
+            {"Home"}
+          </Link>
+        </div>
 
-      <h1
-        className="text-4xl mt-5 my-2 font-bold"
-      >{post.metadata.title}</h1>
-      <time
-        dateTime={publishedAt.toISOString()}
-        className="my-0 text-subtext0"
-      >
-        {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
-      </time>
-      <br />
-      <p
-        className="my-10"
-      >
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </p>
+        <h1
+          className="text-4xl mt-5 my-2 font-bold"
+        >
+          {post.metadata.title}
+        </h1>
+        <time
+          dateTime={publishedAt.toISOString()}
+          className="my-0 text-subtext0"
+        >
+          {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
+        </time>
+        <br />
+        <p
+          className="my-10"
+        >
+          <div
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </p>
+      </div>
     </div>
   )
 }
@@ -69,7 +105,14 @@ export async function getStaticProps(context: { params: { slug: string } }) {
   const { slug } = context.params
   const contentRaw = await getPostContent(slugToFilename(slug))
   const { data: metadata, content } = matter(contentRaw)
-  const html = (await remark().use(remarkHtml).process(content)).toString();
+  const htmlVFile = await unified()
+    .use(remarkParse)
+    .use(remarkHtml)
+    .use(remarkRehype)
+    .use(rehypeHighlight)
+    .use(rehypeStringify)
+    .process(content)
+  const html = htmlVFile.toString()
 
   return {
     props: {
