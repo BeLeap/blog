@@ -10,6 +10,7 @@ import rehypeStringify from "rehype-stringify"
 import rehypeHighlight from "rehype-highlight/lib"
 import palette from "@catppuccin/palette"
 import Head from "next/head"
+import remarkToc from "remark-toc"
 
 type PostProps = {
   post: {
@@ -34,6 +35,7 @@ export default function Post({ post }: PostProps) {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          padding: "3rem 5rem",
         }}
       >
         <div
@@ -41,14 +43,12 @@ export default function Post({ post }: PostProps) {
             display: "flex",
             flexDirection: "column",
             alignContent: "start",
+            alignItems: "space-between",
             maxWidth: "64rem",
-            margin: "5rem",
           }}
         >
           <div
             style={{
-              paddingTop: 10,
-              paddingBottom: 10,
               width: "100%",
             }}
           >
@@ -117,6 +117,7 @@ export async function getStaticProps(context: { params: { slug: string } }) {
   const { data: metadata, content } = matter(contentRaw)
   const htmlVFile = await unified()
     .use(remarkParse)
+    .use(remarkToc)
     .use(remarkHtml)
     .use(remarkRehype)
     .use(rehypeHighlight)

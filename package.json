@@ -28,6 +28,7 @@
     "remark-html": "^15.0.2",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
+    "remark-toc": "^8.0.1",
     "typescript": "5.0.4",
     "unified": "^10.1.2"
   }
