@@ -14,7 +14,7 @@ function generateSiteMap(slugs: string[]) {
       .map((slug) => {
         return `
        <url>
-           <loc>${`${host}/${slug}`}</loc>
+           <loc>${`${host}/posts/${slug}`}</loc>
        </url>
      `;
       })
