@@ -24,8 +24,8 @@ export default function Home({ posts }: HomeProps) {
           const publishedAt = new Date(post.metadata.published_at)
 
           return (
-            <div
-              className="flex flex-col w-full px-5"
+            <nav
+              className="flex flex-col w-full px-5 my-5"
               key={index}
             >
               <h2
@@ -53,7 +53,7 @@ export default function Home({ posts }: HomeProps) {
               >
                 Read more
               </Link>
-            </div>
+            </nav>
           )
         })
       }

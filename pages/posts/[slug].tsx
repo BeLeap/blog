@@ -5,7 +5,7 @@ import remarkHtml from "remark-html"
 
 type PostProps = {
   post: {
-    metadta: { [key: string]: any },
+    metadata: { [key: string]: any },
     html: string,
   },
 }
@@ -13,7 +13,7 @@ type PostProps = {
 export default function Post({ post }: PostProps) {
   return (
     <>
-      <h1>{post.metadta.title}</h1>
+      <h1>{post.metadata.title}</h1>
       <br />
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </>
