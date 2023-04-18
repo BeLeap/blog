@@ -36,6 +36,7 @@ const generateAtom = (postsSorted: Post[]) => {
       </author>
 
       <icon>/profile.png</icon>
+      <logo>/profile.png</logo>
 
       ${postsSorted.map(postToAtomEmtry).join('')}
     </feed>
