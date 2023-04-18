@@ -11,38 +11,36 @@ const generateAtom = (postsSorted: Post[]) => {
     const updatedAt = new Date(post.metadata.updated_at)
 
     return `
-      <entry>
-        <id>${constants.host}/posts/${post.slug}</id>
-        <title>${post.metadata.title}</title>
-        <updated>${updatedAt.toISOString()}</updated>
-        <published>${publishedAt.toISOString()}</published>
-        <link rel="alternate" href="/posts/${post.slug}"/>
-        <summary>${post.metadata.summary}</summary>
-        <content src="${constants.host}/posts/${post.slug}"/>
-        <author>
-          <name>BeLeap</name>
-          <email>beleap@beleap.dev</email>
-        </author>
-      </entry>
-    `
+  <entry>
+    <id>${constants.host}/posts/${post.slug}</id>
+    <title>${post.metadata.title}</title>
+    <updated>${updatedAt.toISOString()}</updated>
+    <published>${publishedAt.toISOString()}</published>
+    <link rel="alternate" href="/posts/${post.slug}"/>
+    <summary>${post.metadata.summary}</summary>
+    <content src="${constants.host}/posts/${post.slug}"/>
+    <author>
+      <name>BeLeap</name>
+      <email>beleap@beleap.dev</email>
+    </author>
+  </entry>
+`
   }
 
-  return `
-    <?xml version="1.0" encoding="utf-8"?>
-    <feed xmlns="http://www.w3.org/2005/Atom">
-      <id>${constants.host}</id>
-      <title>BeLeap Blog</title>
-      <link rel="alternate" type="text/html" hreflang="ko-KR" href="${constants.host}"/> 
-      <link rel="self" type="application/atom+xml" href="${constants.host}/atom.xml"/>
-      <updated>${latestUpdate.toISOString()}</updated>
-      <author>
-        <name>BeLeap</name>
-        <email>beleap@beleap.dev</email>
-      </author>
+  return `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>${constants.host}</id>
+  <title>BeLeap Blog</title>
+  <link rel="alternate" type="text/html" hreflang="ko-KR" href="${constants.host}"/> 
+  <link rel="self" type="application/atom+xml" href="${constants.host}/atom.xml"/>
+  <updated>${latestUpdate.toISOString()}</updated>
+  <author>
+    <name>BeLeap</name>
+    <email>beleap@beleap.dev</email>
+  </author>
 
-      ${postsSorted.map(postToAtomEmtry).join('')}
-    </feed>
-  `
+  ${postsSorted.map(postToAtomEmtry).join('\n')}
+</feed>`
 }
 
 const Atom = () => { }
