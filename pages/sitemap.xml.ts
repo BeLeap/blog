@@ -22,9 +22,7 @@ const generateSiteMap = (slugs: string[]) => {
  `
 }
 
-const SiteMap = () => {
-  // getServerSideProps will do the heavy lifting
-}
+const SiteMap = () => { }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const filenames = await getPostFilenames()
