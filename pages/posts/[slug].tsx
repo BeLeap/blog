@@ -29,7 +29,8 @@ export default function Post({ post }: PostProps) {
     <>
       <Head>
         <title>{post.metadata.title}</title>
-        <meta property="og:title" content={post.metadata.title} key="title" />
+        <meta property="og:title" content={post.metadata.title} />
+        <meta property="og:description" content={post.metadata.summary} />
         <meta property="og:locale" content="ko_KR" />
         <meta property="og:image" content="/profile.png" />
       </Head>
