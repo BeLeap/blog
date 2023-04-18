@@ -18,6 +18,11 @@ const generateAtom = (postsSorted: Post[]) => {
         <published>${publishedAt.toISOString()}</published>
         <link rel="alternate" href="/posts/${post.slug}"/>
         <summary>${post.metadata.summary}</summary>
+        <content src="${constants.host}/posts/${post.slug}"/>
+        <author>
+          <name>BeLeap</name>
+          <email>beleap@beleap.dev</email>
+        </author>
       </entry>
     `
   }
@@ -28,14 +33,15 @@ const generateAtom = (postsSorted: Post[]) => {
 
       <id>${constants.host}</id>
       <title>BeLeap Blog</title>
-      <link href="${constants.host}"/>
+
+      <link rel="self" type="application/atom+xml" href="${constants.host}/feed.xml"/>
+      <link rel="alternate" type="text/html" hreflang="ko-KR" href="${constants.host}"/> 
       <updated>${latestUpdate.toISOString()}</updated>
       <author>
         <name>BeLeap</name>
         <email>beleap@beleap.dev</email>
       </author>
-
-      <icon>/profile.png</icon>
+      <icon>/favicon.ico</icon>
       <logo>/profile.png</logo>
 
       ${postsSorted.map(postToAtomEmtry).join('')}
