@@ -30,13 +30,10 @@ const generateAtom = (postsSorted: Post[]) => {
   return `
     <?xml version="1.0" encoding="utf-8"?>
     <feed xmlns="http://www.w3.org/2005/Atom">
-
       <id>${constants.host}</id>
       <title>BeLeap Blog</title>
-      <icon>${constants.host}/favicon.ico</icon>
-      <logo>${constants.host}/profile.png</logo>
-      <link rel="self" type="application/atom+xml" href="${constants.host}/feed.xml"/>
       <link rel="alternate" type="text/html" hreflang="ko-KR" href="${constants.host}"/> 
+      <link rel="self" type="application/atom+xml" href="${constants.host}/atom.xml"/>
       <updated>${latestUpdate.toISOString()}</updated>
       <author>
         <name>BeLeap</name>
