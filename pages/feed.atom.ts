@@ -33,8 +33,8 @@ const generateAtom = (postsSorted: Post[]) => {
 
       <id>${constants.host}</id>
       <title>BeLeap Blog</title>
-      <icon>/favicon.ico</icon>
-      <logo>/profile.png</logo>
+      <icon>${constants.host}/favicon.ico</icon>
+      <logo>${constants.host}/profile.png</logo>
       <link rel="self" type="application/atom+xml" href="${constants.host}/feed.xml"/>
       <link rel="alternate" type="text/html" hreflang="ko-KR" href="${constants.host}"/> 
       <updated>${latestUpdate.toISOString()}</updated>
