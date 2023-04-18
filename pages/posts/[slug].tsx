@@ -48,7 +48,7 @@ export default function Post({ post }: PostProps) {
             alignContent: "start",
             alignItems: "space-between",
             maxWidth: "64rem",
-            minWidth: "32rem",
+            minWidth: "60%",
           }}
         >
           <div
