@@ -1,21 +1,12 @@
-import fs from "fs/promises"
-import path from "path"
-import matter from "gray-matter"
 import Link from "next/link"
-import { filenameToSlug, getPostFilenames } from "@/utils/posts"
+import { getPostsSorted } from "@/utils/posts"
 import Layout from "@/components/Layout"
 import Head from "next/head"
 import palette from "@catppuccin/palette"
+import { Post } from "@/types/post"
 
 type HomeProps = {
-  posts: {
-    slug: string,
-    metadata: {
-      title: string,
-      published_at: string,
-      summary: string,
-    }
-  }[]
+  posts: Post[]
 }
 
 export default function Home({ posts }: HomeProps) {
@@ -29,7 +20,7 @@ export default function Home({ posts }: HomeProps) {
       </Head>
       {
         posts.map((post, index) => {
-          const publishedAt = new Date(post.metadata.published_at)
+          const updatedAt = new Date(post.metadata.updated_at)
 
           return (
             <nav
@@ -53,14 +44,14 @@ export default function Home({ posts }: HomeProps) {
               </h2>
 
               <time
-                dateTime={publishedAt.toISOString()}
+                dateTime={updatedAt.toISOString()}
                 className="my-0 text-subtext0"
                 style={{
                   marginTop: 2,
                   color: palette.variants.mocha.subtext0.hex,
                 }}
               >
-                {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
+                {`${updatedAt.getFullYear()}-${updatedAt.getMonth()}-${updatedAt.getDate()}`}
               </time>
 
               <p
@@ -88,36 +79,7 @@ export default function Home({ posts }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const filenames = await getPostFilenames()
-
-  const postmetaPromises = filenames
-    .map(async (filename) => {
-      const markdown = await fs.readFile(path.join(process.cwd(), 'posts', filename), { encoding: 'utf8' })
-      const { data: metadata } = matter(markdown)
-
-      return {
-        metadata,
-        slug: filenameToSlug(filename),
-      }
-    })
-
-  const postsUnsorted = await Promise.all(postmetaPromises)
-  const posts = postsUnsorted
-    .sort((a, b) => {
-      const aPublishedAt = new Date(a.metadata.published_at)
-      const bPublishedAt = new Date(b.metadata.published_at)
-
-      if (aPublishedAt < bPublishedAt) {
-        return -1
-      }
-
-      if (aPublishedAt > bPublishedAt) {
-        return 1
-      }
-
-      return 0
-    })
-    .reverse()
+  const posts = await getPostsSorted()
 
   return {
     props: {

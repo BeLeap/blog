@@ -16,16 +16,14 @@ import rehypeSlug from "rehype-slug"
 import rehypeRewrite from "rehype-rewrite"
 import crypto from "crypto"
 import * as htmlUtil from "@/utils/html"
+import { Post } from "@/types/post"
 
 type PostProps = {
-  post: {
-    metadata: { [key: string]: any },
-    html: string,
-  },
+  post: Post & { html: string },
 }
 
-export default function Post({ post }: PostProps) {
-  const publishedAt = new Date(post.metadata.published_at)
+const PostPage = ({ post }: PostProps) => {
+  const updatedAt = new Date(post.metadata.updated_at)
 
   return (
     <>
@@ -82,9 +80,9 @@ export default function Post({ post }: PostProps) {
             {post.metadata.title}
           </h1>
           <time
-            dateTime={publishedAt.toISOString()}
+            dateTime={updatedAt.toISOString()}
           >
-            {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
+            {`${updatedAt.getFullYear()}-${updatedAt.getMonth()}-${updatedAt.getDate()}`}
           </time>
           <br />
           <div>
@@ -98,7 +96,7 @@ export default function Post({ post }: PostProps) {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const filenames = await getPostFilenames()
 
   const slugs = filenames.map((filename) => filenameToSlug(filename))
@@ -113,7 +111,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(context: { params: { slug: string } }) {
+export const getStaticProps = async (context: { params: { slug: string } }) => {
   const { slug } = context.params
   const contentRaw = await getPostContent(slugToFilename(slug))
   const { data: metadata, content } = matter(contentRaw)
@@ -224,3 +222,5 @@ export async function getStaticProps(context: { params: { slug: string } }) {
     },
   }
 }
+
+export default PostPage;
