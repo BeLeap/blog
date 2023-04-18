@@ -14,6 +14,7 @@ import remarkToc from "remark-toc"
 import rehypeAutolinkHeadings from "rehype-autolink-headings/lib"
 import rehypeSlug from "rehype-slug"
 import rehypeRewrite from "rehype-rewrite"
+import crypto from "crypto"
 import * as htmlUtil from "@/utils/html"
 
 type PostProps = {
