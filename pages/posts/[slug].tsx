@@ -179,8 +179,8 @@ export async function getStaticProps(context: { params: { slug: string } }) {
                     tagName: "svg",
                     properties: {
                       xmlns: "http://www.w3.org/2000/svg",
-                      fill: palette.variants.mocha.text.hex,
-                      stroke: palette.variants.mocha.text.hex,
+                      fill: palette.variants.mocha.surface0.hex,
+                      stroke: palette.variants.mocha.surface0.hex,
                       width: "80%",
                       height: "80%",
                       viewBox: "0 0 16 16",
