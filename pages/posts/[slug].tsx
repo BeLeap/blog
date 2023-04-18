@@ -14,6 +14,7 @@ import remarkToc from "remark-toc"
 import rehypeAutolinkHeadings from "rehype-autolink-headings/lib"
 import rehypeSlug from "rehype-slug"
 import rehypeRewrite from "rehype-rewrite"
+import * as htmlUtil from "@/utils/html"
 
 type PostProps = {
   post: {
@@ -81,16 +82,15 @@ export default function Post({ post }: PostProps) {
           </h1>
           <time
             dateTime={publishedAt.toISOString()}
-            className="my-0 text-subtext0"
           >
             {`${publishedAt.getFullYear()}-${publishedAt.getMonth()}-${publishedAt.getDate()}`}
           </time>
           <br />
-          <p>
+          <div>
             <div
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
-          </p>
+          </div>
         </div>
       </div>
     </>
@@ -125,18 +125,91 @@ export async function getStaticProps(context: { params: { slug: string } }) {
     .use(rehypeAutolinkHeadings, {
       behavior: "wrap",
     })
+    .use(rehypeHighlight)
     .use(rehypeRewrite, {
       rewrite: (node) => {
-        if (node.type === "element" && node.properties !== undefined && node.tagName.startsWith("h")) {
-          node.children.forEach((child) => {
-            if (child.type === "element" && child.tagName === "a" && child.properties !== undefined) {
-              child.properties.style = `text-decoration: none; color: ${palette.variants.mocha.text.hex}`
+        if (node.type === "element" && node.properties !== undefined) {
+          if (htmlUtil.isHeading(node.tagName)) {
+            node.children.forEach((child) => {
+              if (child.type === "element" && child.tagName === "a" && child.properties !== undefined) {
+                child.properties.style = `text-decoration: none; color: ${palette.variants.mocha.text.hex}`
+              }
+            })
+          }
+
+          if (htmlUtil.isCodeblock(node.tagName)) {
+            const randomId = crypto.randomUUID().split("-").join("")
+            node.properties = {
+              ...node.properties,
+              style: `
+                display: flex;
+                width: 100%; 
+                justify-content: space-between; 
+                align-items: flex-start;
+              `,
+              id: `${randomId}`,
             }
-          })
+
+            node.children = [
+              ...node.children,
+              {
+                type: "element",
+                tagName: "button",
+                properties: {
+                  style: `
+                    display: flex;
+                    flex-shrink: 0;
+                    align-items: center;
+                    justify-content: center;
+                    color: ${palette.variants.mocha.surface0.hex}; 
+                    width: 2rem; 
+                    height: 2rem;
+                    background-color: ${palette.variants.mocha.overlay2.hex};
+                    border-radius: 0.5rem;
+                  `,
+                  onclick: `
+                    const code = document.getElementById("${randomId}")
+                    navigator.clipboard.writeText(code.innerText)
+                  `,
+                },
+                children: [
+                  {
+                    type: "element",
+                    tagName: "svg",
+                    properties: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: palette.variants.mocha.text.hex,
+                      stroke: palette.variants.mocha.text.hex,
+                      width: "80%",
+                      height: "80%",
+                      viewBox: "0 0 16 16",
+                    },
+                    children: [
+                      {
+                        type: "element",
+                        tagName: "path",
+                        properties: {
+                          d: "M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"
+                        },
+                        children: [],
+                      },
+                      {
+                        type: "element",
+                        tagName: "path",
+                        properties: {
+                          d: "M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"
+                        },
+                        children: [],
+                      },
+                    ],
+                  }
+                ]
+              }
+            ]
+          }
         }
       }
     })
-    .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(content)
   const html = htmlVFile.toString()
