@@ -23,7 +23,6 @@ export default function Home({ posts }: HomeProps) {
     <Layout>
       <Head>
         <title>BeLeap Blog</title>
-        <link rel="shortcut icon" href="/profile.png" />
         <meta property="og:title" content="BeLeap Blog" key="title" />
         <meta property="og:locale" content="ko_KR" />
         <meta property="og:image" content="/profile.png" />
