@@ -7,13 +7,16 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
-        display: "flex",
+        width: "100%",
+        height: "100%",
         minHeight: "calc(100vh - 1rem)",
+        marginLeft: "0",
+        marginRight: "0",
+        display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        alignContent: "center",
         justifyContent: "space-between",
-        marginLeft: "auto",
-        marginRight: "auto",
       }}
     >
       <Header />

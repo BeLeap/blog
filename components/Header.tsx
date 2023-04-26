@@ -9,9 +9,12 @@ export default function Header() {
   return (
     <header
       style={{
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
+        justifyItems: "center",
         padding: "1rem",
         paddingLeft: "10rem",
         paddingRight: "10rem",
@@ -50,7 +53,7 @@ export default function Header() {
       <div
         style={{
           display: "flex",
-          width: "80%",
+          width: "30%",
           alignContent: "center",
           justifyContent: "space-evenly",
           marginBottom: "1rem",

@@ -10,6 +10,7 @@ export default function Footer() {
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: "1rem",
         gap: "0.5rem",
       }}
     >
