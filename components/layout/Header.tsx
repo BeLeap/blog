@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 mb-20">
       <img
         src="/profile.png"
         alt="profile picture"
