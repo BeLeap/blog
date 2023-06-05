@@ -1,11 +1,11 @@
-type Props = {
-  title: string;
-  time: Date;
-};
+import { Metadata } from "../types/articles.ts";
 
-const ArticleCard = ({ title, time }: Props) => {
+const ArticleCard = ({ path, title, time, summary }: Metadata) => {
   return (
-    <div className={"flex flex-col w-[50%] m-2"}>
+    <a
+      href={`/${path}`}
+      className={"flex flex-col w-[50%] m-2 gap-4"}
+    >
       <div className={"flex justify-between"}>
         <h2 className={"text-xl text-white text-bold"}>
           {title}
@@ -16,7 +16,10 @@ const ArticleCard = ({ title, time }: Props) => {
           {`${time.getFullYear()}-${time.getMonth()}-${time.getDate()}`}
         </time>
       </div>
-    </div>
+      <p>
+        {summary}
+      </p>
+    </a>
   );
 };
 export default ArticleCard;
