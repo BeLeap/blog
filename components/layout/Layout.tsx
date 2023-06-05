@@ -1,7 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { ComponentChildren } from "preact";
 import Header from "./Header.tsx";
-import * as mocha from "../../consts/mocha.ts";
 
 type Props = {
   children: ComponentChildren;
@@ -10,10 +9,12 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <div
-      className={`w-screen h-screen flex flex-col items-center bg-[${mocha.Surface0}] text-[${mocha.Overlay2}] gap-4 p-4`}
+      className={`flex flex-col items-center gap-4 p-4`}
     >
       <Head>
         <title>Beleap Blog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="global.css" rel="stylesheet" />
       </Head>
       <Header />
       {children}

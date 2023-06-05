@@ -55,7 +55,7 @@ export default function Home(
 ) {
   return (
     <Layout>
-      <div className={"flex flex-col gap-4 w-full items-center"}>
+      <div className={"flex gap-4 w-full items-center max-w-4xl"}>
         {articleMetas.map(
           (metadata) => (
             <ArticleCard
