@@ -9,6 +9,9 @@
   font-family: 'IBM Plex Mono', monospace;
 }
 
-code {
+pre {
+  border: solid 1px;
   border-radius: 1rem;
+  padding: 1rem;
+  overflow: scroll;
 }

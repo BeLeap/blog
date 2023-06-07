@@ -4,7 +4,9 @@ import { parse } from "frontmatter";
 import Layout from "../../components/layout/Layout.tsx";
 import { css } from "@emotion/css";
 import showdown from "https://esm.sh/showdown@2.1.0";
-import showdownHighlight from "npm:showdown-highlight@3.1.0";
+import { showdownLowlight } from "../../lib/showdownHighlight.ts";
+
+showdown.extension("lowlight", showdownLowlight);
 
 interface Props {
   content: string;
@@ -19,7 +21,7 @@ export const handler: Handlers<Props> = {
 
     const showdownConverter = new showdown.Converter({
       extensions: [
-        showdownHighlight({ pre: true, auto_detection: true }),
+        "lowlight",
       ],
     });
     const content = showdownConverter.makeHtml(markdown);
