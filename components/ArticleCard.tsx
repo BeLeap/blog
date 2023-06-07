@@ -2,9 +2,8 @@ import { Metadata } from "../types/articles.ts";
 
 const ArticleCard = ({ path, title, time, summary }: Metadata) => {
   return (
-    <a
-      href={`/${path}`}
-      className={`flex flex-col m-2 p-4 gap-4 rounded-2xl border`}
+    <div
+      className={`flex flex-col m-2 p-4 gap-4 rounded-2xl border border-black`}
     >
       <div className={"flex justify-between"}>
         <h2 className={`text-xl text-black font-bold`}>
@@ -19,7 +18,13 @@ const ArticleCard = ({ path, title, time, summary }: Metadata) => {
       <p>
         {summary}
       </p>
-    </a>
+      <a
+        href={`/${path}`}
+        className={"text-blue-600 text-underline hover:text-blue-900"}
+      >
+        {"Read More"}
+      </a>
+    </div>
   );
 };
 export default ArticleCard;

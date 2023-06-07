@@ -56,7 +56,7 @@ export default function Home(
   return (
     <Layout>
       <div
-        className={"flex-1 gap-4 w-full items-start max-w-4xl border rounded-3xl"}
+        className={"flex-1 gap-4 w-full items-start max-w-4xl border border-black rounded-3xl"}
       >
         {articleMetas.map(
           (metadata) => (
