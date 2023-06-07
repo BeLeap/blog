@@ -8,27 +8,27 @@ const Header = () => {
     <>
       <div className={styles.container}>
         <div className={styles.left}>
-          <Link href="https://github.com/BeLeap">
+          <a href="https://github.com/BeLeap">
             <SiGithub
               size={32}
               overflow={"visible"}
               className={styles.icon}
             />
-          </Link>
-          <Link href="https://twitter.com/beleap_">
+          </a>
+          <a href="https://twitter.com/beleap_">
             <SiTwitter
               size={32}
               overflow={"visible"}
               className={styles.icon}
             />
-          </Link>
-          <Link href="mailto:beleap@beleap.dev">
+          </a>
+          <a href="mailto:beleap@beleap.dev">
             <SiProtonmail
               size={32}
               overflow={"visible"}
               className={styles.icon}
             />
-          </Link>
+          </a>
           <Image
             src="/profile.png"
             alt="profile picture"
