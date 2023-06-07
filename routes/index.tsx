@@ -1,8 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { css } from "@emotion/css";
 import PostCard from "../components/PostCard.tsx";
 import Layout from "../components/layout/Layout.tsx";
 import type * as Post from "../types/post.ts";
-import { parse } from "https://deno.land/x/frontmatter@v0.1.5/mod.ts";
+import { parse } from "frontmatter";
 
 interface Props {
   postMetas: Post.Metadata[];
@@ -56,7 +57,19 @@ export default function Home(
   return (
     <Layout>
       <div
-        className={"flex-1 gap-4 w-full items-start max-w-4xl border border-gray-400 rounded-3xl bg-gray-100"}
+        class={css`
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 0%;
+          width: 100%;
+          align-items: stretch;
+          max-width: 56rem;
+          border: solid;
+          border-width: 1px;
+          border-color: gray;
+          border-radius: 1.5rem;
+          background-color: gray;
+        `}
       >
         {postMetas.map(
           (metadata) => (

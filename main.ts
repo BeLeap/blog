@@ -6,5 +6,6 @@
 
 import { start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
+import emotion from "https://deno.land/x/fresh_emotioncss/plugin.ts";
 
-await start(manifest);
+await start(manifest, { plugins: [emotion()] });

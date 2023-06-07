@@ -1,15 +1,40 @@
+import { css } from "@emotion/css";
 import { Metadata } from "../types/post.ts";
 
 const PostCard = ({ path, title, time, summary }: Metadata) => {
   return (
     <div
-      className={`flex flex-col m-2 p-4 gap-4 rounded-2xl border border-gray-400 bg-white`}
+      class={css`
+        display: flex;
+        flex-direction: column;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        gap: 0.5rem;
+        border: solid;
+        border-radius: 1rem;
+        border-width: 1px;
+        border-color: gray;
+        background-color: white;
+      `}
     >
-      <div className={"flex justify-between gap-4"}>
-        <h2 className={`text-xl text-black font-bold`}>
+      <div
+        class={css`
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+        `}
+      >
+        <h2
+          class={css`
+            font-size: 1.25rem;
+            font-weight: 900;
+          `}
+        >
           {title}
         </h2>
         <time
+          class={css`white-space: nowrap;`}
           dateTime={time.toISOString()}
         >
           {`${time.getFullYear()}-${time.getMonth()}-${time.getDate()}`}
@@ -20,7 +45,14 @@ const PostCard = ({ path, title, time, summary }: Metadata) => {
       </p>
       <a
         href={`/${path}`}
-        className={"text-blue-600 text-underline hover:text-blue-900"}
+        class={css`
+          color: blue;
+          text-decoration: underline;
+
+          &:hover {
+            color: gray;
+          }
+        `}
       >
         {"Read More"}
       </a>
