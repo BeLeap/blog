@@ -36,8 +36,20 @@ export default function Post({ data: { content } }: PageProps<Props>) {
           overflow: scroll;
         `}
         dangerouslySetInnerHTML={{ __html: content }}
+      />
+
+      <a
+        class={css`
+          color: blue;
+
+          &:visited {
+            color: blue;
+          }
+        `}
+        href="/"
       >
-      </div>
+        {"< Go back"}
+      </a>
     </Layout>
   );
 }
