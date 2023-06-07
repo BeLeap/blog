@@ -2,7 +2,7 @@ import { Metadata } from "@/types/post";
 import styles from "./PostCard.module.css";
 import Link from "next/link";
 
-const PostCard = ({ path, title, time, summary }: Metadata) => {
+const PostCard = ({ filename, title, time, summary }: Metadata) => {
   return (
     <div className={styles.container}>
       <div
@@ -24,7 +24,7 @@ const PostCard = ({ path, title, time, summary }: Metadata) => {
         {summary}
       </p>
       <Link
-        href={`/${path}`}
+        href={`posts/${filename}`}
         className={styles.readMore}
       >
         {"Read More"}
