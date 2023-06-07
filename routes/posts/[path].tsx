@@ -9,27 +9,28 @@ import { showdownLowlight } from "../../lib/showdownHighlight.ts";
 showdown.extension("lowlight", showdownLowlight);
 
 interface Props {
-  content: string;
+  rawContent: string;
 }
 
 export const handler: Handlers<Props> = {
   async GET(req, ctx) {
     const url = urlParse(req.url);
     const rawContent = await Deno.readTextFile(url.pathname.slice(1));
-    const paredResult = parse(rawContent);
-    const markdown = paredResult.content;
-
-    const showdownConverter = new showdown.Converter({
-      extensions: [
-        "lowlight",
-      ],
-    });
-    const content = showdownConverter.makeHtml(markdown);
-    return ctx.render({ content });
+    return ctx.render({ rawContent });
   },
 };
 
-export default function Post({ data: { content } }: PageProps<Props>) {
+export default function Post({ data: { rawContent } }: PageProps<Props>) {
+  const paredResult = parse(rawContent);
+  const markdown = paredResult.content;
+
+  const showdownConverter = new showdown.Converter({
+    extensions: [
+      "lowlight",
+    ],
+  });
+  const content = showdownConverter.makeHtml(markdown);
+
   return (
     <Layout>
       <div
