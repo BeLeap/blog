@@ -14,13 +14,14 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
+      <head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -28,8 +29,9 @@ export default function RootLayout({
           page_path: window.location.pathname,
         });
       `,
-        }}
-      />
+          }}
+        />
+      </head>
       <body className={styles.body}>
         <Header />
         {children}
