@@ -3,6 +3,7 @@ import showdown from "showdown";
 import { showdownLowlight } from "@/lib/showdownLowlight";
 import { readFile } from "fs/promises";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 showdown.extension("lowlight", showdownLowlight);
 
@@ -25,12 +26,12 @@ export default async function Post({ params: { filename } }: { params: { filenam
         dangerouslySetInnerHTML={{ __html: content }}
       />
 
-      <a
+      <Link
         className={styles.goBack}
         href="/"
       >
         {"< Go back"}
-      </a>
+      </Link>
     </>
   );
 }

@@ -41,8 +41,9 @@ export default async function Home() {
   return (
     <div className={styles.container}>
       {postMetas.map(
-        (metadata) => (
+        (metadata, index) => (
           <PostCard
+            key={index}
             {...metadata}
           />
         ),
