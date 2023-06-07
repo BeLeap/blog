@@ -3,8 +3,7 @@ import { getPostMetas } from '@/lib/posts';
 export async function GET() {
   const siteRoot = "https://www.beleap.dev";
   const postMetas = await getPostMetas();
-  const sitemap = `
-<?xml version="1.0" encoding="UTF-8"?>
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>${siteRoot}</loc>
@@ -24,7 +23,7 @@ ${postMetas
       .join('\n')
     }
 </urlset>
-  `
+`
 
   return new Response(sitemap, {
     status: 200,
