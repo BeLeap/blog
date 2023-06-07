@@ -2,7 +2,7 @@ import { SiGithub, SiProtonmail, SiTwitter } from "react-icons/si";
 
 const Header = () => {
   return (
-    <div className="flex gap-4 mb-20 p-2">
+    <div className="flex gap-4 mb-10 p-2">
       <div className="flex flex-col justify-around">
         <a href="https://github.com/BeLeap">
           <SiGithub
