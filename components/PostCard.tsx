@@ -1,6 +1,6 @@
-import { Metadata } from "../types/articles.ts";
+import { Metadata } from "../types/post.ts";
 
-const ArticleCard = ({ path, title, time, summary }: Metadata) => {
+const PostCard = ({ path, title, time, summary }: Metadata) => {
   return (
     <div
       className={`flex flex-col m-2 p-4 gap-4 rounded-2xl border border-gray-400 bg-white`}
@@ -27,4 +27,4 @@ const ArticleCard = ({ path, title, time, summary }: Metadata) => {
     </div>
   );
 };
-export default ArticleCard;
+export default PostCard;

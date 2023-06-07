@@ -1,16 +1,16 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import ArticleCard from "../components/ArticleCard.tsx";
+import PostCard from "../components/PostCard.tsx";
 import Layout from "../components/layout/Layout.tsx";
-import type * as Article from "../types/articles.ts";
+import type * as Post from "../types/post.ts";
 import { parse } from "https://deno.land/x/frontmatter@v0.1.5/mod.ts";
 
 interface Props {
-  articleMetas: Article.Metadata[];
+  postMetas: Post.Metadata[];
 }
 
 export const handler: Handlers<Props> = {
   async GET(_req, ctx) {
-    const articleMetas: Article.Metadata[] = [];
+    const postMetas: Post.Metadata[] = [];
     for await (const dirEntry of Deno.readDir("posts")) {
       // NOTE: Only support top-level articles.
       if (dirEntry.isFile) {
@@ -23,18 +23,18 @@ export const handler: Handlers<Props> = {
           updated_at: string;
           summary: string;
         };
-        const articleMetadata: Article.Metadata = {
+        const postMeta: Post.Metadata = {
           path,
           title: metadata.title,
           summary: metadata.summary,
           time: new Date(metadata.updated_at),
         };
 
-        articleMetas.push(articleMetadata);
+        postMetas.push(postMeta);
       }
     }
 
-    articleMetas.sort((a, b) => {
+    postMetas.sort((a, b) => {
       if (a.time > b.time) {
         return -1;
       }
@@ -46,21 +46,21 @@ export const handler: Handlers<Props> = {
       return 0;
     });
 
-    return ctx.render({ articleMetas });
+    return ctx.render({ postMetas });
   },
 };
 
 export default function Home(
-  { data: { articleMetas } }: PageProps<Props>,
+  { data: { postMetas } }: PageProps<Props>,
 ) {
   return (
     <Layout>
       <div
         className={"flex-1 gap-4 w-full items-start max-w-4xl border border-gray-400 rounded-3xl bg-gray-100"}
       >
-        {articleMetas.map(
+        {postMetas.map(
           (metadata) => (
-            <ArticleCard
+            <PostCard
               {...metadata}
             />
           ),
