@@ -15,7 +15,6 @@ const Layout = ({ children }: Props) => {
       <Head>
         <title>Beleap Blog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="global.css" rel="stylesheet" />
         <style>
           ${CSS}
         </style>
