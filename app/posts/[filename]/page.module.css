@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+  overflow: scroll;
+}
+
+.goBack {
+  color: blue;
+}
+
+.goBack:visited {
+  color: blue;
+}
