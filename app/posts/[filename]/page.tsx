@@ -4,6 +4,7 @@ import { showdownLowlight } from "@/lib/showdownLowlight";
 import { readFile } from "fs/promises";
 import styles from "./page.module.css";
 import Link from "next/link";
+import { getPostFilenames } from "@/lib/posts";
 
 showdown.extension("lowlight", showdownLowlight);
 
@@ -34,4 +35,12 @@ export default async function Post({ params: { filename } }: { params: { filenam
       </Link>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const filenames = await getPostFilenames();
+
+  return filenames.map((filename) => ({
+    filename,
+  }));
 }

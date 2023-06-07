@@ -1,5 +1,5 @@
 export type Metadata = {
-  path: string;
+  filename: string;
   title: string;
   summary: string;
   time: Date;
