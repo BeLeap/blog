@@ -8,7 +8,6 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.2.3",
     "react-icons/si": "https://deno.land/x/react_icons@0.2.3/si/mod.ts",
     "@emotion/css": "https://esm.sh/@emotion/css@11.10.5",
-    "frontmatter": "https://deno.land/x/frontmatter@v0.1.5/mod.ts",
-    "gfm": "https://deno.land/x/gfm@0.2.3/mod.ts"
+    "frontmatter": "https://deno.land/x/frontmatter@v0.1.5/mod.ts"
   }
 }

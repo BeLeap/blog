@@ -68,7 +68,7 @@ export default function Home(
           border-width: 1px;
           border-color: gray;
           border-radius: 1.5rem;
-          background-color: gray;
+          /* background-color: gray; */
         `}
       >
         {postMetas.map(
