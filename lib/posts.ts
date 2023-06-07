@@ -4,12 +4,11 @@ import { readdir, readFile } from "fs/promises";
 
 export const getPostFilenames = async () => {
   const posts = await readdir('posts');
-
-  return posts;
+  return posts.map((it) => it.slice(0, -3));
 }
 
-export const getPostRawContent = async (path: string): Promise<string> => {
-  const fullPath = `posts/${path}`;
+export const getPostRawContent = async (filename: string): Promise<string> => {
+  const fullPath = `posts/${filename}.md`;
   const content = await readFile(fullPath, { encoding: 'utf8' });
 
   return content;
@@ -21,7 +20,8 @@ export const parseFrontMatter = async (content: string): Promise<{
     published_at: string,
     updated_at: string,
     summary: string,
-  }
+  },
+  body: string,
 }> => {
   const parsedResult = frontmatter(content);
 

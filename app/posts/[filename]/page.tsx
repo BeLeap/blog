@@ -1,17 +1,14 @@
-import frontmatter from "front-matter";
 import showdown from "showdown";
 import { showdownLowlight } from "@/lib/showdownLowlight";
-import { readFile } from "fs/promises";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { getPostFilenames } from "@/lib/posts";
+import { getPostFilenames, getPostRawContent, parseFrontMatter } from "@/lib/posts";
 
 showdown.extension("lowlight", showdownLowlight);
 
 export default async function Post({ params: { filename } }: { params: { filename: string } }) {
-  const rawContent = await readFile(`posts/${filename}`, { encoding: 'utf8' });
-  const paredResult = frontmatter(rawContent);
-  const markdown = paredResult.body;
+  const parsedResult = await getPostRawContent(filename).then(parseFrontMatter)
+  const markdown = parsedResult.body;
 
   const showdownConverter = new showdown.Converter({
     extensions: [
