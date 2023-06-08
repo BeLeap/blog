@@ -3,11 +3,13 @@ import { getPostMetas } from '@/lib/posts';
 export async function GET() {
   const siteRoot = "https://www.beleap.dev";
   const postMetas = await getPostMetas();
+
+  const lastUpdate = postMetas.map((it) => it.time).reduce((prev, curr) => (prev > curr ? prev : curr))
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>${siteRoot}</loc>
-<lastmod>${(new Date()).toISOString()}</lastmod>
+<lastmod>${lastUpdate}</lastmod>
 </url>
 ${postMetas
       .map(
