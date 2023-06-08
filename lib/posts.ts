@@ -14,18 +14,30 @@ export const getPostRawContent = async (filename: string): Promise<string> => {
   return content;
 }
 
-export const parseFrontMatter = async (content: string): Promise<{
-  attributes: {
-    title: string,
-    published_at: string,
-    updated_at: string,
-    summary: string,
-  },
-  body: string,
-}> => {
+type FrontmatterAttribute = {
+  title: string,
+  published_at: string,
+  updated_at: string,
+  summary: string,
+}
+export const parseFrontMatter = async (content: string): Promise<{ attributes: Partial<FrontmatterAttribute>, body: string }> => {
   const parsedResult = frontmatter(content);
 
   return parsedResult as any;
+}
+
+export const interpolateFrontMatter = (frontmatterParsed: { attributes: Partial<FrontmatterAttribute>, body: string }): { attributes: FrontmatterAttribute, body: string } => {
+  const todayISOString = (new Date()).toISOString();
+
+  return {
+    attributes: {
+      title: frontmatterParsed.attributes.title ?? "",
+      published_at: frontmatterParsed.attributes.updated_at ?? todayISOString,
+      updated_at: frontmatterParsed.attributes.published_at ?? todayISOString,
+      summary: frontmatterParsed.attributes.summary ?? `${frontmatterParsed.body.slice(0, 100)}...`,
+    },
+    body: frontmatterParsed.body,
+  };
 }
 
 export const getPostMetas = async (): Promise<Post.Metadata[]> => {
@@ -35,7 +47,7 @@ export const getPostMetas = async (): Promise<Post.Metadata[]> => {
         .map((filename) => {
           const rawContentPromise = getPostRawContent(filename);
 
-          const frontmatterParsedPromise = rawContentPromise.then(parseFrontMatter);
+          const frontmatterParsedPromise = rawContentPromise.then(parseFrontMatter).then(interpolateFrontMatter);
 
           const postMetaPromise = frontmatterParsedPromise
             .then((frontmatterParsed) => ({
