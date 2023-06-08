@@ -1,15 +1,12 @@
 import showdown from "showdown";
-import { lowlight } from "lowlight";
-import { toHtml } from "hast-util-to-html";
-import { htmlUnecode } from "./showdownUtil";
 
-export const showdownLowlight = () => {
+export const showdownHeadingAnchor = () => {
   return [
     {
       type: "output",
       filter: (text: string) => {
-        const left = "<pre><code\\b[^>]*>";
-        const right = "</code></pre>";
+        const left = "<h\\d\\b[^>]*>";
+        const right = "</h\\d.*>";
         const flags = "g";
 
         const replacement = (
@@ -18,8 +15,16 @@ export const showdownLowlight = () => {
           left: string,
           right: string,
         ) => {
-          const unecodedMatch = htmlUnecode(match);
-          return left + toHtml(lowlight.highlightAuto(unecodedMatch)) + right;
+          const ids = left.match(/id="(.*)"/);
+
+          let newHeadingTag = left;
+          if (ids != null) {
+            // NOTE: only single id supported
+            const id = ids[1];
+            newHeadingTag += `<a href="#${id}" style="margin-right: 0.5rem">&gt;</a>`
+          }
+
+          return newHeadingTag + match + right;
         };
 
         return showdown.helper.replaceRecursiveRegExp(
@@ -31,5 +36,5 @@ export const showdownLowlight = () => {
         );
       },
     },
-  ];
-};
+  ]
+}
