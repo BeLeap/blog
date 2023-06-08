@@ -1,12 +1,13 @@
 @import url('https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
 
 ::-webkit-scrollbar {
   display: none;
 }
 
 * {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Mono', 'Nanum Gothic Coding', monospace;
 }
 
 pre {
