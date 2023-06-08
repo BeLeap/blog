@@ -1,6 +1,5 @@
 import { SiGithub, SiProtonmail, SiTwitter } from "react-icons/si";
 import styles from "./Header.module.css";
-import Link from "next/link";
 import Image from "next/image";
 
 const Header = () => {
@@ -47,7 +46,7 @@ const Header = () => {
             Sticks to Neovim.
           </p>
         </div>
-      </div >
+      </div>
     </>
   );
 };
