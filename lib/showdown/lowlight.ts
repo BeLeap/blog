@@ -1,7 +1,7 @@
 import showdown from "showdown";
 import { lowlight } from "lowlight";
 import { toHtml } from "hast-util-to-html";
-import { htmlUnecode } from "./showdownUtil";
+import { htmlUnecode } from "./util";
 
 export const showdownLowlight = () => {
   return [

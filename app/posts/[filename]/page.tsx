@@ -1,9 +1,9 @@
 import showdown from "showdown";
-import { showdownLowlight } from "@/lib/showdownLowlight";
+import { showdownLowlight } from "@/lib/showdown/lowlight";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { getPostFilenames, getPostRawContent, parseFrontMatter } from "@/lib/posts";
-import { showdownHeadingAnchor } from "@/lib/showdownHeadingAnchor";
+import { showdownHeadingAnchor } from "@/lib/showdown/headingAnchor";
 
 showdown.extension("lowlight", showdownLowlight);
 showdown.extension("headingAnchor", showdownHeadingAnchor);
