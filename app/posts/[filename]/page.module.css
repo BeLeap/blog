@@ -5,6 +5,7 @@
 
 .goBack {
   color: blue;
+  white-space: nowrap;
 }
 
 .goBack:visited {
