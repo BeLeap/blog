@@ -13,6 +13,7 @@
 
 .goBack {
   align-self: end;
+  margin-top: 1rem;
   color: blue;
   white-space: nowrap;
 }
