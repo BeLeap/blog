@@ -1,9 +1,19 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  width: 100%;
+  margin: 1rem;
+  max-width: 56rem;
+}
+
+.content {
   width: 100%;
   overflow: scroll;
 }
 
 .goBack {
+  align-self: end;
   color: blue;
   white-space: nowrap;
 }

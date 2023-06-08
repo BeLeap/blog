@@ -18,11 +18,12 @@ export default async function Post({ params: { filename } }: { params: { filenam
   const content = showdownConverter.makeHtml(markdown);
 
   return (
-    <>
+    <div className={styles.container}>
       <div
-        className={styles.container}
+        className={styles.content}
         dangerouslySetInnerHTML={{ __html: content }}
       />
+
 
       <Link
         className={styles.goBack}
@@ -30,7 +31,7 @@ export default async function Post({ params: { filename } }: { params: { filenam
       >
         {"< Go back"}
       </Link>
-    </>
+    </div>
   );
 }
 
