@@ -21,7 +21,7 @@ export const showdownHeadingAnchor = () => {
           if (ids != null) {
             // NOTE: only single id supported
             const id = ids[1];
-            newHeadingTag += `<a href="#${id}" style="margin-right: 0.5rem">&gt;</a>`
+            newHeadingTag += `<a href="#${id}" style="margin-right: 0.5rem; color: #862633; text-decoration: none;">&gt;</a>`
           }
 
           return newHeadingTag + match + right;

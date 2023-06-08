@@ -26,13 +26,3 @@
 .time {
   white-space: nowrap;
 }
-
-.readMore {
-  color: blue;
-  text-decoration: underline;
-
-}
-
-.readMore:hover {
-  color: gray;
-}

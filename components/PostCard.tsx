@@ -23,10 +23,7 @@ const PostCard = ({ filename, title, time, summary }: Metadata) => {
       <p>
         {summary}
       </p>
-      <Link
-        href={`posts/${filename}`}
-        className={styles.readMore}
-      >
+      <Link href={`posts/${filename}`}>
         {"Read More"}
       </Link>
     </div>

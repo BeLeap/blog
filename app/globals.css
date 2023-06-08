@@ -16,3 +16,11 @@ pre {
   padding: 1rem;
   overflow: scroll;
 }
+
+a {
+  color: gray;
+}
+
+a:hover {
+  color: #862633;
+}

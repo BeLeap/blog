@@ -18,11 +18,11 @@
 }
 
 .icon {
-  color: black;
+  color: gray;
 }
 
 .icon:hover {
-  color: gray;
+  color: #862633;
 }
 
 .profile {
