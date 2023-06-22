@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import './globals.css'
 import styles from './layout.module.css'
+import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'BeLeap Blog',
@@ -34,7 +35,9 @@ export default function RootLayout({
       </head>
       <body className={styles.body}>
         <Header />
-        {children}
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   )

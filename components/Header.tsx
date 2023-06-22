@@ -4,7 +4,7 @@ import Image from "next/image";
 const Header = () => {
   return (
     <header className={styles.container}>
-      <div className={styles.left}>
+      <address className={styles.left}>
         <a href="https://github.com/BeLeap">
           Github
         </a>
@@ -21,7 +21,7 @@ const Header = () => {
           height={100}
           className={styles.profile}
         />
-      </div>
+      </address>
       <div className={styles.right}>
         <div className={styles.name}>
           BeLeap

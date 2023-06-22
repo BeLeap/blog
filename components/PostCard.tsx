@@ -5,7 +5,7 @@ import Link from "next/link";
 const PostCard = ({ filename, title, time, summary }: Metadata) => {
   return (
     <div className={styles.container}>
-      <div
+      <header
         className={styles.top}
       >
         <h2
@@ -19,7 +19,7 @@ const PostCard = ({ filename, title, time, summary }: Metadata) => {
         >
           {`${time.getFullYear()}-${time.getMonth()}-${time.getDate()}`}
         </time>
-      </div>
+      </header>
       <p>
         {summary}
       </p>
