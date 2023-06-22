@@ -6,7 +6,7 @@ export default async function Home() {
   const postMetas = await getPostMetas();
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       {postMetas.map(
         (metadata, index) => (
           <PostCard
@@ -15,6 +15,6 @@ export default async function Home() {
           />
         ),
       )}
-    </div>
+    </main>
   );
 }

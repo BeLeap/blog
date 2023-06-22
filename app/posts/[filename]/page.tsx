@@ -35,7 +35,7 @@ export default async function Post({ params: { filename } }: Props) {
   const content = showdownConverter.makeHtml(markdown);
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <div
         className={styles.content}
         dangerouslySetInnerHTML={{ __html: content }}
@@ -48,7 +48,7 @@ export default async function Post({ params: { filename } }: Props) {
       >
         {"< Go back"}
       </Link>
-    </div>
+    </main>
   );
 }
 
