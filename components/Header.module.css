@@ -2,6 +2,7 @@
   display: flex;
   margin-bottom: 2.5rem;
   padding: 0.5rem;
+  align-items: center;
 }
 
 .left {
@@ -11,26 +12,20 @@
   max-height: 12rem;
   padding: 1rem;
   gap: 1rem;
-
-  @media (min-width: 640px) {
-    grid-template-rows: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.icon {
-  color: gray;
-}
-
-.icon:hover {
-  color: #862633;
 }
 
 .profile {
   width: 2rem;
   height: 2rem;
   order: -9999;
+}
 
-  @media (min-width: 640px) {
+@media (min-width: 640px) {
+  .left {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+
+  .profile {
     width: 9rem;
     height: 9rem;
     order: 9999;

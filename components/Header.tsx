@@ -1,4 +1,3 @@
-import { SiGithub, SiProtonmail, SiTwitter } from "react-icons/si";
 import styles from "./Header.module.css";
 import Image from "next/image";
 
@@ -8,25 +7,13 @@ const Header = () => {
       <div className={styles.container}>
         <div className={styles.left}>
           <a href="https://github.com/BeLeap">
-            <SiGithub
-              size={32}
-              overflow={"visible"}
-              className={styles.icon}
-            />
+            Github
           </a>
           <a href="https://twitter.com/beleap_">
-            <SiTwitter
-              size={32}
-              overflow={"visible"}
-              className={styles.icon}
-            />
+            Twitter
           </a>
           <a href="mailto:beleap@beleap.dev">
-            <SiProtonmail
-              size={32}
-              overflow={"visible"}
-              className={styles.icon}
-            />
+            Mail
           </a>
           <Image
             src="/profile.png"
