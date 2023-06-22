@@ -1,7 +1,6 @@
 import Header from '@/components/Header'
 import './globals.css'
 import styles from './layout.module.css'
-import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'BeLeap Blog',
