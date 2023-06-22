@@ -20,9 +20,9 @@ const PostCard = ({ filename, title, time, summary }: Metadata) => {
           {`${time.getFullYear()}-${time.getMonth()}-${time.getDate()}`}
         </time>
       </header>
-      <p>
+      <summary>
         {summary}
-      </p>
+      </summary>
       <Link href={`posts/${filename}`}>
         {"Read More"}
       </Link>

@@ -36,7 +36,7 @@ export default async function Post({ params: { filename } }: Props) {
 
   return (
     <main className={styles.container}>
-      <div
+      <article
         className={styles.content}
         dangerouslySetInnerHTML={{ __html: content }}
       />

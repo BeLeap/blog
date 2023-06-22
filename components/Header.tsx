@@ -22,16 +22,16 @@ const Header = () => {
           className={styles.profile}
         />
       </address>
-      <div className={styles.right}>
-        <div className={styles.name}>
+      <section className={styles.right}>
+        <h1 className={styles.name}>
           BeLeap
-        </div>
+        </h1>
         <p className={styles.description}>
           DevOps engineer by day,{"\n"}
           Rust enthusiast by night.{"\n"}
           Sticks to Neovim.
         </p>
-      </div>
+      </section>
     </header>
   );
 };
