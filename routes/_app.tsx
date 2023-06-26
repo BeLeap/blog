@@ -34,9 +34,6 @@ injectGlobal`
 export default function App({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Head>
-        <title>BeLeap Blog</title>
-      </Head>
       <section
         className={css`
         display: flex;

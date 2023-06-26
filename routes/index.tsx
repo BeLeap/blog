@@ -1,8 +1,8 @@
 import { getPostMetas } from "@/lib/posts.ts";
-import { useData } from "aleph/framework/react/data.ts";
 import * as Post from "@/types/post.ts";
 import PostCard from "@/components/PostCard.tsx";
 import { css } from "@emotion/css";
+import { Head, useData } from "aleph/react";
 
 export const data = {
   defer: true,
@@ -16,8 +16,12 @@ export default function Index() {
   const { data: { postMetas } } = useData<{ postMetas: Post.Metadata[] }>();
 
   return (
-    <main
-      className={css`
+    <>
+      <Head>
+        <title>BeLeap Blog</title>
+      </Head>
+      <main
+        className={css`
         display: flex;
         flex-direction: column;
         flex: 1 1 0%;
@@ -29,10 +33,11 @@ export default function Index() {
         border-color: gray;
         border-radius: 1.5rem;
       `}
-    >
-      {postMetas.map((metadata, idx) => (
-        <PostCard key={`post-${idx}`} {...metadata} />
-      ))}
-    </main>
+      >
+        {postMetas.map((metadata, idx) => (
+          <PostCard key={`post-${idx}`} {...metadata} />
+        ))}
+      </main>
+    </>
   );
 }
