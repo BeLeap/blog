@@ -1,6 +1,6 @@
 import Header from "@/components/Header.tsx";
 import { css, injectGlobal } from "@emotion/css";
-import { useData } from "https://deno.land/x/aleph@1.0.0-beta.43/framework/react/data.ts";
+import { Head, useData } from "aleph/react";
 
 injectGlobal`
   @import url('https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css');
@@ -31,23 +31,12 @@ injectGlobal`
   }
 `;
 
-export const data = {
-  defer: true,
-  fetch: () => {
-    const gaKey = Deno.env.get("GOOGLE_ANALYTICS");
-    return Response.json({
-      gaKey,
-    });
-  },
-};
-
 export default function App({ children }: { children: React.ReactNode }) {
-  const { data: { gaKey } } = useData<{ gaKey: string }>();
-
   return (
     <>
-      <head>
-      </head>
+      <Head>
+        <title>BeLeap Blog</title>
+      </Head>
       <section
         className={css`
         display: flex;
