@@ -4,9 +4,11 @@
 import * as $0 from "./_app.tsx";
 import * as $1 from "./_404.tsx";
 import * as $2 from "./index.tsx";
+import * as $3 from "./posts/$filename.tsx";
 
 export default {
   "/_app": $0,
   "/_404": $1,
   "/": $2,
+  "/posts/:filename": $3,
 };
