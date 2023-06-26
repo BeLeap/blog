@@ -12,16 +12,8 @@ export const data = {
   },
 };
 
-export default function Index() {
-  const { data: { postMetas } } = useData<{ postMetas: Post.Metadata[] }>();
-
-  return (
-    <>
-      <Head>
-        <title>BeLeap Blog</title>
-      </Head>
-      <main
-        className={css`
+const indexCss = {
+  self: css`
           display: flex;
           flex-direction: column;
           flex: 1 1 0%;
@@ -32,7 +24,19 @@ export default function Index() {
           border-width: 1px;
           border-color: gray;
           border-radius: 1.5rem;
-        `}
+        `,
+};
+
+export default function Index() {
+  const { data: { postMetas } } = useData<{ postMetas: Post.Metadata[] }>();
+
+  return (
+    <>
+      <Head>
+        <title>BeLeap Blog</title>
+      </Head>
+      <main
+        className={indexCss.self}
       >
         {postMetas.map((metadata, idx) => (
           <PostCard key={`post-${idx}`} {...metadata} />

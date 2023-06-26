@@ -2,9 +2,27 @@ import { getPostRawContent, parseFrontMatter } from "@/lib/posts.ts";
 import showdown from "showdown";
 import { showdownHeadingAnchor } from "@/lib/showdown/headingAnchor.ts";
 import { showdownLowlight } from "@/lib/showdown/lowlight.ts";
-import { useData } from "aleph/framework/react/data.ts";
 import { css } from "@emotion/css";
-import { Head, Link } from "aleph/react";
+import { Head, Link, useData } from "aleph/react";
+
+const postCss = {
+  self: css`
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 0%;
+        width: 100%;
+        max-width: 56rem;
+      `,
+  article: css`
+            width: 100%;
+            overflow: scroll;
+          `,
+  goBack: css`
+            align-self: end;
+            margin-top: 1rem;
+            white-space: nowrap;
+          `,
+};
 
 showdown.extension("lowlight", showdownLowlight);
 showdown.extension("headingAnchor", showdownHeadingAnchor);
@@ -50,28 +68,15 @@ const Post = () => {
         <title>{title}</title>
       </Head>
       <main
-        className={css`
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 0%;
-        width: 100%;
-        max-width: 56rem;
-      `}
+        className={postCss.self}
       >
         <article
-          className={css`
-          width: 100%;
-          overflow: scroll;
-        `}
+          className={postCss.article}
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
         <Link
-          className={css`
-          align-self: end;
-          margin-top: 1rem;
-          white-space: nowrap;
-        `}
+          className={postCss.goBack}
           to="/"
         >
           {"< Go back"}

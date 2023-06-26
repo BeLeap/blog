@@ -30,17 +30,21 @@ injectGlobal`
   }
 `;
 
+const appCss = {
+  self: css`
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem;
+        `,
+};
+
 export default function App({ children }: { children: React.ReactNode }) {
   return (
     <>
       <section
-        className={css`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
-      `}
+        className={appCss.self}
       >
         <Header />
         {children}
