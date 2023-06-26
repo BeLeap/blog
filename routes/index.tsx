@@ -1,7 +1,15 @@
+import { css } from "@emotion/css";
+
 export default function Index() {
   return (
-    <div>
-      Hello, World!
-    </div>
+    <>
+      <div
+        className={css`
+          color: orange
+        `}
+      >
+        Hello, World!
+      </div>
+    </>
   );
 }
