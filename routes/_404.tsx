@@ -1,8 +1,11 @@
-import { Link } from "aleph/react";
+import { Head, Link } from "aleph/react";
 
 export default function E404() {
   return (
-    <div className="screen e404">
+    <>
+      <Head>
+        <title>BeLeap Blog - 404 Not Found</title>
+      </Head>
       <h2>
         Ooooooops, nothing here!
       </h2>
@@ -11,6 +14,6 @@ export default function E404() {
           Go back to the homepage
         </Link>
       </p>
-    </div>
+    </>
   );
 }
