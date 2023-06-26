@@ -30,7 +30,9 @@ export default function Index() {
         border-radius: 1.5rem;
       `}
     >
-      {postMetas.map((metadata) => <PostCard {...metadata} />)}
+      {postMetas.map((metadata, idx) => (
+        <PostCard key={`post-${idx}`} {...metadata} />
+      ))}
     </main>
   );
 }
