@@ -1,5 +1,5 @@
 import Header from "@/components/Header.tsx";
-import { injectGlobal } from "@emotion/css";
+import { css, injectGlobal } from "@emotion/css";
 
 injectGlobal`
   @import url('https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css');
@@ -32,9 +32,17 @@ injectGlobal`
 
 export default function App({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <section
+      className={css`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+      `}
+    >
       <Header />
       {children}
-    </>
+    </section>
   );
 }

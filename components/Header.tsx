@@ -18,6 +18,10 @@ const Header = () => {
           max-height: 12rem;
           padding: 1rem;
           gap: 1rem;
+
+          @media (min-width: 640px) {
+            grid-template-rows: repeat(3, minmax(0, 1fr));
+          }
         `}
       >
         <a href="https://github.com/BeLeap">
@@ -38,6 +42,12 @@ const Header = () => {
             width: 2rem;
             height: 2rem;
             order: -9999;
+
+            @media (min-width: 640px) {
+              width: 9rem;
+              height: 9rem;
+              order: 9999;
+            }
           `}
         />
       </address>
