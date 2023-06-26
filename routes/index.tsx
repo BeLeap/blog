@@ -22,17 +22,17 @@ export default function Index() {
       </Head>
       <main
         className={css`
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 0%;
-        width: 100%;
-        align-items: stretch;
-        max-width: 56rem;
-        border: solid;
-        border-width: 1px;
-        border-color: gray;
-        border-radius: 1.5rem;
-      `}
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 0%;
+          width: 100%;
+          align-items: stretch;
+          max-width: 56rem;
+          border: solid;
+          border-width: 1px;
+          border-color: gray;
+          border-radius: 1.5rem;
+        `}
       >
         {postMetas.map((metadata, idx) => (
           <PostCard key={`post-${idx}`} {...metadata} />

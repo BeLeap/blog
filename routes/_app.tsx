@@ -1,6 +1,5 @@
 import Header from "@/components/Header.tsx";
 import { css, injectGlobal } from "@emotion/css";
-import { Head, useData } from "aleph/react";
 
 injectGlobal`
   @import url('https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css');
