@@ -3,6 +3,7 @@ import * as Post from "@/types/post.ts";
 import PostCard from "@/components/PostCard.tsx";
 import { css } from "@emotion/css";
 import { Head, useData } from "aleph/react";
+import { useState, useEffect, Suspense } from "react";
 
 export const data = {
   defer: true,
@@ -38,9 +39,13 @@ export default function Index() {
       <main
         className={indexCss.self}
       >
-        {postMetas.map((metadata, idx) => (
-          <PostCard key={`post-${idx}`} {...metadata} />
-        ))}
+        {
+            postMetas.map(
+              (metadata, idx) => {
+                return <PostCard key={`post-${idx}`} {...metadata} />
+              }
+            )
+        }
       </main>
     </>
   );

@@ -1,6 +1,8 @@
 import { css } from "@emotion/css";
 import * as Post from "@/types/post.ts";
 import { Link } from "aleph/react";
+import { useEffect, useState, Suspense } from "react";
+import Time from "@/components/Time.tsx";
 
 const postCardCss = {
   self: css`
@@ -31,34 +33,32 @@ const postCardCss = {
 };
 
 const PostCard = ({ filename, title, time, summary }: Post.Metadata) => {
-  const timeInDate = new Date(time);
-
   return (
-    <div
-      className={postCardCss.self}
-    >
-      <header
-        className={postCardCss.top}
+    <Suspense fallback={<div>LOADING</div>}>
+      <div
+        className={postCardCss.self}
       >
-        <h2
-          className={postCardCss.heading}
+        <header
+          className={postCardCss.top}
         >
-          {title}
-        </h2>
-        <time
-          className={postCardCss.time}
-          dateTime={timeInDate.toISOString()}
-        >
-          {`${timeInDate.getFullYear()}-${timeInDate.getMonth()}-${timeInDate.getDate()}`}
-        </time>
-      </header>
-      <summary>
-        {summary}
-      </summary>
-      <Link to={`posts/${filename}`}>
-        {"Read More"}
-      </Link>
-    </div>
+          <h2
+            className={postCardCss.heading}
+          >
+            {title}
+          </h2>
+          <Time 
+            className={postCardCss.time}
+            time={new Date(time)}
+          />
+        </header>
+        <summary>
+          {summary}
+        </summary>
+        <Link to={`posts/${filename}`}>
+          {"Read More"}
+        </Link>
+      </div>
+    </Suspense>
   );
 };
 export default PostCard;
