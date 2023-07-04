@@ -16,7 +16,7 @@ export default function App({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="./assets/favicon.ico" />
+        <link rel="icon" href="/assets/favicon.ico" />
         <style>
           {`
             @import url('https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css');
