@@ -64,8 +64,8 @@ const Header = () => {
         <a href="https://github.com/BeLeap">
           Github
         </a>
-        <a href="https://twitter.com/beleap_">
-          Twitter
+        <a rel="me" href="https://social.silicon.moe/@beleap">
+          Mastodon
         </a>
         <a href="mailto:beleap@beleap.dev">
           Mail
