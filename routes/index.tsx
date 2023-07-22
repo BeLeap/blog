@@ -38,13 +38,11 @@ export default function Index() {
       <main
         className={indexCss.self}
       >
-        {
-            postMetas.map(
-              (metadata, idx) => {
-                return <PostCard key={`post-${idx}`} {...metadata} />
-              }
-            )
-        }
+        {postMetas.map(
+          (metadata, idx) => {
+            return <PostCard key={`post-${idx}`} {...metadata} />;
+          },
+        )}
       </main>
     </>
   );
