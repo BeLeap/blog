@@ -8,7 +8,6 @@
     "aleph/plugins/deploy": "https://deno.land/x/aleph@1.0.0-beta.44/plugins/deploy.ts",
     "aleph/dev": "https://deno.land/x/aleph@1.0.0-beta.44/server/dev.ts",
     "aleph/server": "https://deno.land/x/aleph@1.0.0-beta.44/server/mod.ts",
-    "@emotion/css": "https://esm.sh/v126/*@emotion/css@11.1.3",
     "react-dom": "https://esm.sh/v126/*react-dom@18.2.0",
     "react-dom/": "https://esm.sh/v126/*react-dom@18.2.0/",
     "react": "https://esm.sh/v126/react@18.2.0",
@@ -16,11 +15,6 @@
   },
   "scopes": {
     "https://esm.sh/v126/": {
-      "@emotion/babel-plugin": "https://esm.sh/v126/@emotion/babel-plugin@11.11.0",
-      "@emotion/cache": "https://esm.sh/v126/@emotion/cache@11.11.0",
-      "@emotion/serialize": "https://esm.sh/v126/@emotion/serialize@1.1.2",
-      "@emotion/sheet": "https://esm.sh/v126/@emotion/sheet@1.2.2",
-      "@emotion/utils": "https://esm.sh/v126/@emotion/utils@1.2.1",
       "commander": "https://esm.sh/v126/commander@9.5.0",
       "loose-envify": "https://esm.sh/v126/loose-envify@1.4.0",
       "scheduler": "https://esm.sh/v126/scheduler@0.23.0"

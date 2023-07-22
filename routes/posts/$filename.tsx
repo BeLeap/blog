@@ -2,7 +2,6 @@ import { getPostRawContent, parseFrontMatter } from "@/lib/posts.ts";
 import showdown from "showdown";
 import { showdownHeadingAnchor } from "@/lib/showdown/headingAnchor.ts";
 import { showdownLowlight } from "@/lib/showdown/lowlight.ts";
-import { css } from "@emotion/css";
 import { Head, Link, useData } from "aleph/react";
 
 showdown.extension("lowlight", showdownLowlight);

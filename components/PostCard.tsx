@@ -1,19 +1,7 @@
-import { css } from "@emotion/css";
 import * as Post from "@/types/post.ts";
 import { Link } from "aleph/react";
 import { Suspense } from "react";
 import Time from "@/components/Time.tsx";
-
-const postCardCss = {
-  self: css`
-        `,
-  top: css`
-      `,
-  heading: css`
-          `,
-  time: css`
-        `,
-};
 
 const PostCard = ({ filename, title, time, summary }: Post.Metadata) => {
   return (

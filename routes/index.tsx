@@ -1,7 +1,6 @@
 import { getPostMetas } from "@/lib/posts.ts";
 import * as Post from "@/types/post.ts";
 import PostCard from "@/components/PostCard.tsx";
-import { css } from "@emotion/css";
 import { Head, useData } from "aleph/react";
 
 export const data = {
