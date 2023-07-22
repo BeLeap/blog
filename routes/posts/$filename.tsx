@@ -46,6 +46,9 @@ const Post = () => {
     <>
       <Head>
         <title>{title}</title>
+        <meta property="og:title" content={`BeLeap Blog - ${title}`}/>
+        <meta property="og:url" content="https://beleap.dev"/>
+        <meta property="og:image" content="https://beleap.dev/assets/profile.png" />
       </Head>
       <style>{`
         .posts__container {
