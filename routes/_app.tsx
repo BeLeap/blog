@@ -6,16 +6,6 @@ export default function App({ children }: { children: React.ReactNode }) {
     <>
       <style>{`
         @import url('https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css');
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
-
-        * {
-          font-family: 'IBM Plex Mono', 'Nanum Gothic Coding', monospace;
-        }
-
-        ::-webkit-scrollbar {
-          display: none;
-        }
 
         pre {
           border: solid 1px;
@@ -24,13 +14,6 @@ export default function App({ children }: { children: React.ReactNode }) {
           overflow: scroll;
         }
 
-        a {
-          color: gray;
-        }
-
-        a:hover {
-          color: #862633;
-        }  
 
         ._app__container {
           display: flex;
