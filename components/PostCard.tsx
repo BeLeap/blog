@@ -6,6 +6,20 @@ import Time from "@/components/Time.tsx";
 
 const postCardCss = {
   self: css`
+        `,
+  top: css`
+      `,
+  heading: css`
+          `,
+  time: css`
+        `,
+};
+
+const PostCard = ({ filename, title, time, summary }: Post.Metadata) => {
+  return (
+    <>
+      <style>{`
+        .PostCard__container {
           display: flex;
           flex-direction: column;
           margin: 0.5rem;
@@ -16,47 +30,48 @@ const postCardCss = {
           border-width: 1px;
           border-color: gray;
           background-color: white;
-        `,
-  top: css`
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-      `,
-  heading: css`
+        }
+
+        .PostCard__top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .PostCard__heading {
             font-size: 1.25rem;
             font-weight: 900;
-          `,
-  time: css`
-          white-space: nowrap;
-        `,
-};
+        }
 
-const PostCard = ({ filename, title, time, summary }: Post.Metadata) => {
-  return (
-    <div
-      className={postCardCss.self}
-    >
-      <header
-        className={postCardCss.top}
+        .PostCard__time {
+          white-space: nowrap;
+        }
+      `}</style>
+      <div
+        className="PostCard__container"
       >
-        <h2
-          className={postCardCss.heading}
+        <header
+          className="PostCard__top"
         >
-          {title}
-        </h2>
-        <Time 
-          className={postCardCss.time}
-          time={new Date(time)}
-        />
-      </header>
-      <summary>
-        {summary}
-      </summary>
-      <Link to={`posts/${filename}`}>
-        {"Read More"}
-      </Link>
-    </div>
+          <h2
+            className="PostCard__heading"
+          >
+            {title}
+          </h2>
+          <Time 
+            className="PostCard__time"
+            time={new Date(time)}
+          />
+        </header>
+        <summary>
+          {summary}
+        </summary>
+        <Link to={`posts/${filename}`}>
+          {"Read More"}
+        </Link>
+      </div>
+    </>
   );
 };
 export default PostCard;

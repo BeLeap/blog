@@ -5,25 +5,6 @@ import { showdownLowlight } from "@/lib/showdown/lowlight.ts";
 import { css } from "@emotion/css";
 import { Head, Link, useData } from "aleph/react";
 
-const postCss = {
-  self: css`
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 0%;
-        width: 100%;
-        max-width: 56rem;
-      `,
-  article: css`
-            width: 100%;
-            overflow: scroll;
-          `,
-  goBack: css`
-            align-self: end;
-            margin-top: 1rem;
-            white-space: nowrap;
-          `,
-};
-
 showdown.extension("lowlight", showdownLowlight);
 showdown.extension("headingAnchor", showdownHeadingAnchor);
 
@@ -67,16 +48,34 @@ const Post = () => {
       <Head>
         <title>{title}</title>
       </Head>
-      <main
-        className={postCss.self}
-      >
+      <style>{`
+        .posts__container {
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 0%;
+          width: 100%;
+          max-width: 56rem;
+        }
+
+        .posts__article {
+          width: 100%;
+          overflow: scroll;
+        }
+
+        .posts__goBack {
+          align-self: end;
+          margin-top: 1rem;
+          white-space: nowrap;
+        }
+      `}</style>
+      <main className="posts__container">
         <article
-          className={postCss.article}
+          className="posts__article"
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
         <Link
-          className={postCss.goBack}
+          className="posts__goBack"
           to="/"
         >
           {"< Go back"}
