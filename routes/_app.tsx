@@ -4,22 +4,17 @@ import { Head } from "https://deno.land/x/aleph@1.0.0-beta.43/framework/react/he
 export default function App({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Head>
-        <link rel="icon" href="/assets/favicon.ico" />
-        <style>{`
-        `}</style>
-      </Head>
       <style>{`
         @import url('https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css');
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
 
-        ::-webkit-scrollbar {
-          display: none;
-        }
-
         * {
           font-family: 'IBM Plex Mono', 'Nanum Gothic Coding', monospace;
+        }
+
+        ::-webkit-scrollbar {
+          display: none;
         }
 
         pre {
