@@ -63,7 +63,7 @@ const Header = () => {
       <header className="Header__container">
         <address className="Header__left">
           <a href="https://github.com/BeLeap">
-            Github
+            GitHub
           </a>
           <a rel="me" href="https://social.silicon.moe/@beleap">
             Mastodon
