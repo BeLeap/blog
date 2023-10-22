@@ -1,7 +1,15 @@
-const PostCard = () => {
+export interface Props {
+  title: string;
+  summary: string;
+  link: string;
+}
+
+const PostCard = ({ title, summary, link }: Props) => {
   return (
     <div>
-      This is PostCard.
+      <h1>{title}</h1>
+      <summary>{summary}</summary>
+      <a href={link}>Continue Reading</a>
     </div>
   );
 };
