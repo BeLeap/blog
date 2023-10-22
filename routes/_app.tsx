@@ -1,11 +1,7 @@
 import { AppProps } from "$fresh/server.ts";
 import Header from "../components/Header.tsx";
-import { injectGlobal } from "@twind/core";
 
-injectGlobal`
-`;
-
-export default function App({ Component }: AppProps) {
+const App = ({ Component }: AppProps) => {
   return (
     <html>
       <head>
@@ -24,4 +20,5 @@ export default function App({ Component }: AppProps) {
       </body>
     </html>
   );
-}
+};
+export default App;
