@@ -6,7 +6,8 @@ const Home = () => {
       {[
         {
           title: "Foo",
-          summary: "Lorem Ipsum",
+          summary: "Lorem Ipsum Dolor Sit",
+          publishedAt: new Date(),
           slug: "foo",
         },
       ].map((it) => ({
