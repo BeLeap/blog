@@ -1,7 +1,9 @@
+import PostCard from "../components/PostCard.tsx";
+
 const Home = () => {
   return (
     <>
-      Lorem Ipsum
+      {[{}].map((it) => <PostCard />)}
     </>
   );
 };
