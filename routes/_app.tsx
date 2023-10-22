@@ -1,4 +1,5 @@
 import { AppProps } from "$fresh/server.ts";
+import Footer from "../components/Footer.tsx";
 import Header from "../components/Header.tsx";
 
 const App = ({ Component }: AppProps) => {
@@ -17,6 +18,7 @@ const App = ({ Component }: AppProps) => {
       <body>
         <Header />
         <Component />
+        <Footer />
       </body>
     </html>
   );
