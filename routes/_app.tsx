@@ -17,7 +17,9 @@ const App = ({ Component }: AppProps) => {
       </head>
       <body>
         <Header />
-        <Component />
+        <div class="px-4">
+          <Component />
+        </div>
         <Footer />
       </body>
     </html>

@@ -7,8 +7,8 @@ export interface Props {
 const PostCard = ({ title, summary, link }: Props) => {
   return (
     <div>
-      <h1>{title}</h1>
-      <summary>{summary}</summary>
+      <h1 class="text-2xl font-extrabold">{title}</h1>
+      <div>{summary}</div>
       <a href={link}>Continue Reading</a>
     </div>
   );
