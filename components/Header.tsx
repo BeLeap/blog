@@ -12,14 +12,14 @@ const Header = () => {
       </div>
       <nav class="flex gap-4">
         {[
-          ["Home", "/"],
-          ["About", "/about"],
+          { url: "/", label: "Home" },
+          { url: "/about", label: "About" },
         ].map((it) => (
           <a
-            href={it[1]}
+            href={it.url}
             class="text-gray-400 font-bold text-xl hover:text-black"
           >
-            {it[0]}
+            {it.label}
           </a>
         ))}
       </nav>
