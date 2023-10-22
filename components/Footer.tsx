@@ -4,7 +4,7 @@ import IconCopyright from "@icon/copyright.tsx";
 
 const Footer = () => {
   return (
-    <div class="fixed bottom-0 left-0 w-[100%] p-4 flex items-center justify-between">
+    <div class="fixed bottom-0 left-0 w-[100%] bg-white p-4 flex items-center justify-between">
       <div class="flex gap-2">
         {[
           { url: "https://github.com/BeLeap", label: <IconBrandGitHub /> },
