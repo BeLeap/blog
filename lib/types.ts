@@ -26,7 +26,7 @@ export class Nothing {
 
   constructor() {}
 
-  unwrap() {
+  unwrap(): never {
     throw new Error("Can not unwrap Nothing");
   }
 }

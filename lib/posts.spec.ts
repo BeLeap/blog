@@ -1,12 +1,12 @@
 import { assertEquals } from "$std/testing/asserts.ts";
-import { listPostFilenames, parseFrontmatter } from "./markdown.ts";
+import { listFilename, parseFrontmatter } from "./posts.ts";
 import { Just } from "./types.ts";
 
-Deno.test("listPosts", async () => {
-  console.log(await listPostFilenames());
+Deno.test("list", async () => {
+  console.log(await listFilename());
 });
 
-Deno.test("parseFrontmatter - it should parse frontmatter", async () => {
+Deno.test("parseFrontmatter - it should parse frontmatter", () => {
   const content = `---
 title: "Foo"
 tags: ["Lorem", "Ipsum"]
@@ -16,7 +16,7 @@ summary: "Bar"
 ---
 
 Lorem Ipsum`;
-  const resultMaybe = await parseFrontmatter(content);
+  const resultMaybe = parseFrontmatter(content);
   assertEquals(resultMaybe.__kind, "Just");
 
   if (Just.isJust(resultMaybe)) {
