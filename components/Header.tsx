@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header class="p-4 flex items-center justify-between">
+    <header class="p-4 flex items-center justify-between flex-wrap flex-row">
       <div class="flex gap-2 items-center">
         <img
           src="/profile.png"
@@ -10,7 +10,7 @@ const Header = () => {
           BeLeap Blog
         </h1>
       </div>
-      <nav class="flex gap-4">
+      <nav class="flex gap-4 justify-end">
         {[
           { url: "/", label: "Home" },
           { url: "/about", label: "About" },

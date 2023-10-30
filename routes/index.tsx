@@ -42,7 +42,7 @@ export const handler: Handlers<HomeData> = {
 const HomePage = (props: PageProps<HomeData>) => {
   return (
     <div class="flex flex-wrap">
-      <div class="grow">
+      <div class="min-w-fit basis-2/3">
         {props.data.postList
           .map((it) => ({
             title: it[1].title,
