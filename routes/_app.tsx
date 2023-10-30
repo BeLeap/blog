@@ -17,7 +17,7 @@ const App = ({ Component }: AppProps) => {
       </head>
       <body>
         <Header />
-        <div class="px-4">
+        <div class="px-4 mb-16">
           <Component />
         </div>
         <Footer />
