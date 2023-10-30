@@ -9,7 +9,7 @@ export interface Props {
 
 const PostCard = ({ title, summary, publishedAt, link }: Props) => {
   return (
-    <div>
+    <div class="shadow-md rounded m-4 p-4">
       <h1 class="text-2xl font-extrabold mb-2">{title}</h1>
       <div class="mb-8">
         Published at <Time isoString={publishedAt.toISOString()} />
