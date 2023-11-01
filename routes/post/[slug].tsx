@@ -3,6 +3,9 @@ import { CSS, KATEX_CSS, render } from "https://deno.land/x/gfm@0.2.5/mod.ts";
 import * as posts from "../../lib/posts.ts";
 import { Head } from "$fresh/runtime.ts";
 import { Just } from "../../lib/types.ts";
+import "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check";
+import "https://esm.sh/prismjs@1.29.0/components/prism-bash?no-check";
+import "https://esm.sh/prismjs@1.29.0/components/prism-rust?no-check";
 
 interface PostPageData {
   content: string;
@@ -32,10 +35,12 @@ const PostPage = (props: PageProps<PostPageData>) => {
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
         <style dangerouslySetInnerHTML={{ __html: KATEX_CSS }} />
       </Head>
-      <div
-        class="markdown-body"
-        dangerouslySetInnerHTML={{ __html: props.data.content }}
-      />
+      <div class="h-[100%] shadow-md rounded m-4 p-4">
+        <div
+          class="markdown-body"
+          dangerouslySetInnerHTML={{ __html: props.data.content }}
+        />
+      </div>
     </>
   );
 };
