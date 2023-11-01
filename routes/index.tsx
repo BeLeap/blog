@@ -41,20 +41,15 @@ export const handler: Handlers<HomeData> = {
 
 const HomePage = (props: PageProps<HomeData>) => {
   return (
-    <div class="flex flex-wrap">
-      <div class="min-w-fit basis-2/3">
-        {props.data.postList
-          .map((it) => ({
-            title: it[1].title,
-            summary: it[1].summary,
-            publishedAt: new Date(it[1].published_at),
-            link: `/post/${posts.filenameToSlug(it[0])}`,
-          })).map((it) => <PostCard {...it} />)}
-      </div>
-      <div>
-        Lorem Ipsum
-      </div>
-    </div>
+    <>
+      {props.data.postList
+        .map((it) => ({
+          title: it[1].title,
+          summary: it[1].summary,
+          publishedAt: new Date(it[1].published_at),
+          link: `/post/${posts.filenameToSlug(it[0])}`,
+        })).map((it) => <PostCard {...it} />)}
+    </>
   );
 };
 export default HomePage;

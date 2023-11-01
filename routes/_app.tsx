@@ -18,7 +18,14 @@ const App = ({ Component }: AppProps) => {
       <body>
         <Header />
         <div class="px-4 mb-16">
-          <Component />
+          <div class="flex flex-wrap">
+            <div class="lg:basis-2/3">
+              <Component />
+            </div>
+            <div>
+              Lorem Ipsum
+            </div>
+          </div>
         </div>
         <Footer />
       </body>

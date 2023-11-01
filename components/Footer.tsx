@@ -8,7 +8,10 @@ const Footer = () => {
       <div class="flex gap-2">
         {[
           { url: "https://github.com/BeLeap", label: <IconBrandGitHub /> },
-          { url: "", label: <IconBrandMastodon /> },
+          {
+            url: "https://social.silicon.moe/@beleap",
+            label: <IconBrandMastodon />,
+          },
         ].map((it) => (
           <a class="text-gray-400 hover:text-black" href={it.url}>{it.label}</a>
         ))}
