@@ -32,7 +32,7 @@ export const parseFrontmatter = (
 > => {
   if (frontmatter.test(content)) {
     const result = frontmatter.extract(content);
-    return new Just([result.attrs, result.body]);
+    return new Just([result.attrs as Metadata, result.body]);
   } else {
     return new Nothing();
   }
