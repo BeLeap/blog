@@ -1,18 +1,18 @@
 const Header = () => {
   return (
-    <header class="p-4 flex items-center justify-between flex-wrap flex-row">
+    <header class="p-4 flex items-center justify-between flex-wrap flex-row rounded-b-lg mb-4 w-full shadow-md">
       <div class="flex gap-2 items-center">
         <img
           src="/profile.png"
-          class="w-16"
+          class="w-10 rounded-full"
         />
-        <h1 class="font-black text-4xl">
-          BeLeap Blog
+        <h1 class="ml-4 font-black text-4xl">
+          BeLeap
         </h1>
       </div>
       <nav class="flex gap-4 justify-end">
         {[
-          { url: "/", label: "Home" },
+          { url: "/", label: "Articles" },
           { url: "/about", label: "About" },
         ].map((it) => (
           <a
