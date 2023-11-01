@@ -3,9 +3,7 @@ import { CSS, KATEX_CSS, render } from "https://deno.land/x/gfm@0.2.5/mod.ts";
 import * as posts from "../../lib/posts.ts";
 import { Head } from "$fresh/runtime.ts";
 import { Just } from "../../lib/types.ts";
-import "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check";
-import "https://esm.sh/prismjs@1.29.0/components/prism-bash?no-check";
-import "https://esm.sh/prismjs@1.29.0/components/prism-rust?no-check";
+import "../../lib/prism-languages.ts";
 
 interface PostPageData {
   content: string;
