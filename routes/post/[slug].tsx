@@ -33,7 +33,7 @@ const PostPage = (props: PageProps<PostPageData>) => {
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
         <style dangerouslySetInnerHTML={{ __html: KATEX_CSS }} />
       </Head>
-      <div class="h-full shadow-md rounded-lg m-4 p-8">
+      <div class="shadow-md rounded-lg p-8">
         <div
           class="markdown-body"
           dangerouslySetInnerHTML={{ __html: props.data.content }}

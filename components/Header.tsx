@@ -1,12 +1,12 @@
 const Header = () => {
   return (
-    <header class="p-4 flex items-center justify-between flex-wrap flex-row rounded-b-lg mb-4 w-full shadow-md">
-      <div class="flex gap-2 items-center">
+    <header class="p-4 flex items-center justify-between flex-wrap flex-row rounded-b-lg mb-4 shadow-md w-full">
+      <div class="flex gap-2 items-center mr-8">
         <img
           src="/profile.png"
           class="w-10 rounded-full"
         />
-        <h1 class="ml-4 font-black text-4xl">
+        <h1 class="ml-2 font-black text-4xl">
           BeLeap
         </h1>
       </div>
