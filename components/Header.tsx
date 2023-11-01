@@ -1,7 +1,7 @@
 const Header = () => {
   return (
-    <header class="p-4 flex items-center justify-between flex-wrap flex-row rounded-b-lg mb-4 shadow-md w-full">
-      <div class="flex gap-2 items-center mr-8">
+    <header class="p-4 grid grid-rows-2 grid-cols-4 rounded-b-lg mb-4 shadow-md w-full">
+      <div class="flex gap-2 items-center col-start-1 col-span-4 row-start-1 row-span-1 sm:col-start-1 sm:col-span-3 sm:row-start-1 sm:row-span-2">
         <img
           src="/profile.png"
           class="w-10 rounded-full"
@@ -10,7 +10,7 @@ const Header = () => {
           BeLeap
         </h1>
       </div>
-      <nav class="flex gap-4 justify-end">
+      <nav class="flex gap-4 justify-end items-center col-start-1 col-span-4 row-start-2 row-span-1 sm:col-start-4 sm:col-span-1 sm:row-start-1 sm:row-span-2">
         {[
           { url: "/", label: "Articles" },
           { url: "/about", label: "About" },
