@@ -1,5 +1,5 @@
 import { AppProps } from "$fresh/server.ts";
-import Categories from "../components/Categories.tsx";
+import Tags from "../components/Tags.tsx";
 import Footer from "../components/Footer.tsx";
 import Header from "../components/Header.tsx";
 import RecentPosts from "../components/RecentPosts.tsx";
@@ -23,7 +23,7 @@ const App = ({ Component }: AppProps) => {
           </div>
           <div class="justify-self-start w-full col-span-4 md:col-start-4 md:row-start-2 md:row-span-2 grid grid-cols-2 grid-rows-2 gap-4 px-4">
             <div class="col-start-1 col-span-1 row-start-1 row-span-2 md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-1">
-              <Categories />
+              <Tags />
             </div>
             <div class="col-start-2 col-span-1 row-start-1 row-span-2 md:col-start-1 md:col-span-2 md:row-start-2 md:row-span-1">
               <RecentPosts />

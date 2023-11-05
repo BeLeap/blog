@@ -1,4 +1,4 @@
-const Categories = () => {
+const Tags = () => {
   return (
     <div>
       <h1 class="text-lg font-bold">Tags</h1>
@@ -7,4 +7,4 @@ const Categories = () => {
     </div>
   );
 };
-export default Categories;
+export default Tags;
