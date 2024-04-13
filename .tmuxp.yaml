@@ -1,0 +1,12 @@
+session_name: blog
+start_directory: .
+
+windows:
+  - window_name: editor
+    panes:
+      - nvim
+  - window_name: shell
+    layout: main-vertical
+    panes:
+      - focus: true
+      - bundle exec jekyll serve | tee jekyll.log
