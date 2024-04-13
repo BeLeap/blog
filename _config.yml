@@ -50,3 +50,5 @@ defaults:
       show_date: true
       read_time: true
       author_profile: true
+      share: true
+      related: true
