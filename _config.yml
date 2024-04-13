@@ -13,6 +13,9 @@ words_per_minute: 200
 mathjax:
   enable: true
 search_full_content: true
+google_fonts:
+  - name: "IBM Plex Sans KR"
+    weights: "400,400i,700,700i"
 
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
 plugins:
