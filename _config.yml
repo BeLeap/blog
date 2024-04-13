@@ -8,7 +8,6 @@ twitter_username: beleap_
 github_username:  BeLeap
 
 # So Simple Configurations
-skin: "assets/css/skins/dark.css"
 read_time: true
 words_per_minute: 200
 mathjax:
