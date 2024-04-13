@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "EKS에서 IAM User Group으로 권한주기"
 date: "2022-09-21T00:00:00+09:00"
 categories: "AWS"

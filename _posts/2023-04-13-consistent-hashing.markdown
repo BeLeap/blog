@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: 안정해시는 무엇인가
 date: 2024-04-13T14:30:41Z
 categories: DevKor

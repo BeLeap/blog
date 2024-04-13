@@ -1,6 +1,7 @@
-- title: Posts
-  url: /
-- title: Categories
-  url: /categories
-- title: Search
-  url: /search
+main:
+  - title: Posts
+    url: /
+  - title: Categories
+    url: /categories
+  - title: Search
+    url: /search

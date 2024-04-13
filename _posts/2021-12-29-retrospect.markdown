@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "2021 회고"
 date: "2021-12-29T00:00:00+09:00"
 categories: "Retrospect"

@@ -7,9 +7,6 @@ url: "https://beleap.dev"
 twitter_username: beleap_
 github_username:  BeLeap
 
-# So Simple Configurations
-read_time: true
-words_per_minute: 200
 markdown: kramdown
 mathjax:
   enable: true
@@ -23,20 +20,33 @@ tag_archive_path: "/tags/#"
 feed:
   path: atom.xml
 
-remote_theme: "mmistakes/so-simple-theme@3.2.0"
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-include-cache
 
-footer_links:
-  - title: Twitter
-    url: https://twitter.com/beleap_
-    icon: fab fa-twitter-square
-  - title: GitHub
-    url: https://github.com/BeLeap
-    icon: fab fa-github-square
-  - title: Feed
-    url: atom.xml
-    icon: fas fa-rss-square
+
+author:
+  name: "BeLeap"
+  avatar: "https://avatars.githubusercontent.com/u/46488521?v=4"
+  bio: Creating something unnecessary
+  links:
+    - label: Twitter
+      url: https://twitter.com/beleap_
+      icon: fab fa-twitter-square
+    - label: GitHub
+      url: https://github.com/BeLeap
+      icon: fab fa-github-square
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      show_date: true
+      read_time: true
+      author_profile: true
