@@ -1,4 +1,4 @@
-session_name: klue-backend
+session_name: blog
 start_directory: .
 
 windows:
