@@ -4,11 +4,11 @@ title = 'BeLeap Blog'
 theme = 'archie'
 
 [params]
-	mode="auto" # color-mode → light,dark,toggle or auto
-	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
+	mode="auto"
+	useCDN=false
 	subtitle = "Creating something unnecessary"
-	mathjax = true # enable MathJax support
-	katex = true # enable KaTeX support
+	mathjax = true
+	katex = true
 
 [[params.social]]
 name = "GitHub"
