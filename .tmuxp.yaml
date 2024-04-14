@@ -1,0 +1,12 @@
+session_name: klue-backend
+start_directory: .
+
+windows:
+  - window_name: editor
+    panes:
+      - nvim
+  - window_name: shell
+    layout: main-vertical
+    panes:
+      - focus: true
+      - hugo server | tee hugo.log
