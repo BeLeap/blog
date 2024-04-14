@@ -2,7 +2,7 @@
 title: "2021 회고"
 date: 2021-12-29
 description: "옥찬호님이 한번 회고를 작성해보라는 제안을 해주셔서 죽어있던 블로그를 되살려 처음으로 회고를 작성해보게 되었다."
-draft: true
+draft: false
 tags: [Retrospect]
 ---
 
