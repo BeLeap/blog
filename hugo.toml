@@ -9,6 +9,16 @@ theme = 'archie'
 	subtitle = "Creating something unnecessary"
 	mathjax = true
 	katex = true
+  customJS = [
+    "https://www.googletagmanager.com/gtag/js?id=G-ZH852B37EW",
+    """<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZH852B37EW');
+    </script>""",
+  ]
 
 [[params.social]]
 name = "GitHub"
