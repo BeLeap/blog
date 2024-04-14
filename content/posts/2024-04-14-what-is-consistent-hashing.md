@@ -2,7 +2,7 @@
 title: 안정해시는 무엇인가?
 date: 2024-04-14
 draft: false
-tags: [DevKor]
+tags: [DevKor, Distributed System]
 ---
 
 해시 테이블의 크기가 변경될 때 평균적으로 $n / m$개만 옮기면 되는 알고리즘
