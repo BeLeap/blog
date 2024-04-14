@@ -1,7 +1,7 @@
 ---
 title: "Aws ProfilE Switcher"
 date: 2022-09-20
-tldr: "apes는 여러 개의 AWS Profile을 사용할 때 AWS Profile간의 변경을 쉽게 만들어주는 커맨드라인 유틸리티이다."
+description: "apes는 여러 개의 AWS Profile을 사용할 때 AWS Profile간의 변경을 쉽게 만들어주는 커맨드라인 유틸리티이다."
 draft: true
 tags: ["AWS"]
 ---
