@@ -40,3 +40,8 @@ tags: [DevKor, Distributed System]
 ![new-server](/posts/2024-04-14-what-is-consistent-hashing/new-server.png)
 
 또한 서버가 제거된 경우 전체를 재계산할 필요없이 제거된 서버의 다음 서버에 모두 옮겨주는 방식으로 구현을 할 수도 있습니다.
+
+# References
+
+- https://en.wikipedia.org/wiki/Consistent_hashing
+- https://songkg7.github.io/posts/Consistent-Hashing/
