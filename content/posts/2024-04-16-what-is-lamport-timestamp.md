@@ -23,3 +23,7 @@ $C(x)$가 $x$의 카운터 값이라고 할 때,
     - Vector Clock 같은 다른 기술을 이용하면 가능합니다.
 - Total Order를 지원하기 위해 Process ID 같은 것을 사용하여 강제로 순서를 부여할 수 있습니다.
     - 하지만 이는 완전히 인위적으로 부여한 것이며 실제 순서와는 상관없을 수 있습니다.
+
+# 참고한 자료
+
+- https://en.wikipedia.org/wiki/Lamport_timestamp
