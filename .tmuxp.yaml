@@ -9,4 +9,4 @@ windows:
     layout: main-vertical
     panes:
       - focus: true
-      - hugo server | tee hugo.log
+      - hugo server -DF | tee hugo.log
