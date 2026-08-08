@@ -1,0 +1,5 @@
+- I want to build blog with github pages
+- blog posts are markdown format and located at ./posts as git submodule
+- stick to 60:30:10 color principle
+- I prefer Serif
+- Font must support Korean
