@@ -644,10 +644,6 @@ a:focus-visible {
   background: var(--accent);
 }
 
-.post-aside-date {
-  line-height: 1.6;
-}
-
 .prose {
   min-width: 0;
   color: var(--ink-soft);
