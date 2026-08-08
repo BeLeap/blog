@@ -24,7 +24,7 @@ npm ci
 npm run dev
 ```
 
-If the repository is already cloned, initialize the posts submodule with:
+If the repository is already cloned, initialize the `blog-content` submodule with:
 
 ```sh
 git submodule update --init --recursive
