@@ -619,8 +619,8 @@ a:focus-visible {
 
 .post-body-layout {
   display: grid;
-  grid-template-columns: 150px minmax(0, 700px);
-  gap: clamp(2rem, 7vw, 7rem);
+  grid-template-columns: 110px minmax(0, 700px);
+  gap: clamp(1.5rem, 4vw, 4rem);
   align-items: start;
 }
 
