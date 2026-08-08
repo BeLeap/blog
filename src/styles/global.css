@@ -345,12 +345,24 @@ a:focus-visible {
 }
 
 .section-note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin: 0;
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.7;
   text-align: right;
   letter-spacing: -0.045em;
+}
+
+.section-feed-link {
+  color: var(--accent);
+  transition: color 180ms ease;
+}
+
+.section-feed-link:hover {
+  color: var(--ink);
 }
 
 .post-list {
