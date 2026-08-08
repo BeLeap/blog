@@ -40,7 +40,7 @@ The generated GitHub Pages-ready site is available through the `result` symlink.
 
 ## Posts
 
-Markdown files live in `blog-content/`, which is the `BeLeap/blog-content` git submodule. Frontmatter currently supports:
+Markdown files live in `blog-content/post/`, which is the `BeLeap/blog-content` git submodule. Frontmatter currently supports:
 
 ```yaml
 ---
