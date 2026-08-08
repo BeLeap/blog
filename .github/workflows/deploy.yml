@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and posts
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Enable the Nix binary cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Build the static site with Nix
+        run: nix build .#default --print-build-logs
+
+      - name: Upload the Nix build result
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: result
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
