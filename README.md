@@ -61,6 +61,13 @@ Drafts are shown during local development and excluded from production builds. S
 
 Published posts are also available through the RSS feed at `/rss.xml` (or `${BASE_PATH}/rss.xml` for a project-site deployment).
 
+## Analytics
+
+Google Analytics 4 is included with the public Measurement ID
+`G-ZH852B37EW`, hardcoded in `src/layouts/BaseLayout.astro`. Measurement IDs
+are public by design and are not secrets; API credentials must never be placed
+in the frontend.
+
 ## Deployment
 
 `.github/workflows/deploy.yml` checks out the post submodule, installs Nix, builds `.#default` from the flake, and deploys the result with GitHub Pages. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
