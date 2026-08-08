@@ -124,7 +124,6 @@ a:focus-visible {
 .section-label,
 .section-number,
 .post-header-meta,
-.post-aside,
 .featured-card-foot,
 .featured-index,
 .post-row-meta,
@@ -617,33 +616,6 @@ a:focus-visible {
   letter-spacing: 0.04em;
 }
 
-.post-body-layout {
-  display: grid;
-  grid-template-columns: 110px minmax(0, 700px);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: start;
-}
-
-.post-aside {
-  position: sticky;
-  top: 2rem;
-  display: grid;
-  gap: 0.8rem;
-  color: var(--muted);
-  font-size: 0.58rem;
-  letter-spacing: 0.1em;
-}
-
-.post-aside-label {
-  color: var(--accent);
-}
-
-.post-aside-line {
-  width: 2rem;
-  height: 1px;
-  background: var(--accent);
-}
-
 .prose {
   min-width: 0;
   color: var(--ink-soft);
@@ -940,22 +912,6 @@ a:focus-visible {
 
   .post-header h1 {
     font-size: clamp(2.4rem, 13vw, 4rem);
-  }
-
-  .post-body-layout {
-    display: block;
-  }
-
-  .post-aside {
-    position: static;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .post-aside-line {
-    width: 1.2rem;
   }
 
   .prose {
