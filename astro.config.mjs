@@ -1,6 +1,7 @@
 import { unified } from "@astrojs/markdown-remark";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 import { rehypeHeadingLinks } from "./src/plugins/rehype-heading-links.mjs";
 import { rehypeStaticAssetPaths } from "./src/plugins/rehype-static-asset-paths.mjs";
@@ -16,6 +17,7 @@ export default defineConfig({
   site,
   base: base === "/" ? undefined : base,
   trailingSlash: "never",
+  integrations: [sitemap()],
   markdown: {
     processor: unified({
       remarkPlugins: [remarkMath],

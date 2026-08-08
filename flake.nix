@@ -27,7 +27,7 @@
             version = "0.0.0";
             src = ./.;
 
-            npmDepsHash = "sha256-bETne5NhkLc+EtFwewRLX3HKhWmtjnPijb53w/oPo1U=";
+            npmDepsHash = "sha256-7RO9E1EapF3j88qQn5zeL0myY4zt0rD43YTRQ9ss/ok=";
             npmBuildScript = "build";
 
             preBuild = ''

@@ -59,7 +59,7 @@ Markdown supports inline `$...$` and display `$$...$$` LaTeX, rendered at build 
 
 Drafts are shown during local development and excluded from production builds. Set `PUBLIC_SHOW_DRAFTS=true` when a preview build needs to include them.
 
-Published posts are also available through the RSS feed at `/rss.xml` (or `${BASE_PATH}/rss.xml` for a project-site deployment).
+Published posts are also available through the RSS feed at `/rss.xml` (or `${BASE_PATH}/rss.xml` for a project-site deployment). The production build also generates `sitemap-index.xml` (or `${BASE_PATH}/sitemap-index.xml`) for search engines.
 
 ## Analytics
 
