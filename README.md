@@ -14,7 +14,7 @@ Resume: [latest PDF release](https://github.com/BeLeap/resume/releases/latest/do
 
 ## Local development
 
-Clone the repository with its post submodule, enter the Nix development shell, and install the locked JavaScript dependencies:
+Clone the repository with its `blog-content` submodule, enter the Nix development shell, and install the locked JavaScript dependencies:
 
 ```sh
 git clone --recurse-submodules https://github.com/BeLeap/blog.git
@@ -40,7 +40,7 @@ The generated GitHub Pages-ready site is available through the `result` symlink.
 
 ## Posts
 
-Markdown files live in `posts/`, which is the `BeLeap/posts` git submodule. Frontmatter currently supports:
+Markdown files live in `blog-content/`, which is the `BeLeap/blog-content` git submodule. Frontmatter currently supports:
 
 ```yaml
 ---
