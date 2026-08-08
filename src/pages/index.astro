@@ -26,7 +26,11 @@ const postCount = String(posts.length);
         <div class="section-label" id="featured-heading"><span>00 / Latest post</span><span>{formatDate(featured.data.date)}</span></div>
         <a class="featured-card" href={postHref(featured.id)}>
           <div class="featured-card-top">
-            <span class="featured-index">{featured.data.tags[0] ?? "POST"}</span>
+            {featured.data.tags.length > 0 && (
+              <span class="featured-index">
+                {featured.data.tags.map((tag) => `#${tag}`).join(" ")}
+              </span>
+            )}
             <span class="featured-arrow" aria-hidden="true">↗</span>
           </div>
           <h2>{featured.data.title}</h2>
