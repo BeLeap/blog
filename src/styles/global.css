@@ -766,9 +766,12 @@ a:focus-visible {
   }
 
   .site-rail {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     min-height: 0;
     height: auto;
+    border-bottom: 1px solid rgba(244, 239, 230, 0.12);
     padding: 1.4rem 1.25rem 1.5rem;
   }
 
