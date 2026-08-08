@@ -25,7 +25,7 @@ export function postHref(id: string): string {
 }
 
 export function postExcerpt(post: Post): string {
-  const excerpt = post.data.description || post.data.tldr || "A note from the archive.";
+  const excerpt = post.data.description || post.data.tldr || "";
   const limit = 160;
 
   return excerpt.length > limit

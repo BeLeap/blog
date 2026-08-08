@@ -11,6 +11,7 @@ import {
 
 const posts = sortPosts(getVisiblePosts(await getCollection("posts")));
 const featured = posts[0];
+const featuredExcerpt = featured ? postExcerpt(featured) : "";
 const postCount = String(posts.length);
 ---
 
@@ -29,7 +30,7 @@ const postCount = String(posts.length);
             <span class="featured-arrow" aria-hidden="true">↗</span>
           </div>
           <h2>{featured.data.title}</h2>
-          <p>{postExcerpt(featured)}</p>
+          {featuredExcerpt && <p>{featuredExcerpt}</p>}
           <div class="featured-card-foot">
             <span>Open post</span>
             <span>{featured.data.draft ? "Draft / preview" : "Published"}</span>
@@ -58,7 +59,7 @@ const postCount = String(posts.length);
                   {post.data.draft && <span class="draft-label">Draft</span>}
                 </div>
                 <h3>{post.data.title}</h3>
-                <p>{postExcerpt(post)}</p>
+                {postExcerpt(post) && <p>{postExcerpt(post)}</p>}
               </div>
               <span class="post-row-arrow" aria-hidden="true">↗</span>
             </a>
