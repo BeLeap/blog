@@ -635,6 +635,15 @@ a:focus-visible {
   margin-top: 0;
 }
 
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  scroll-margin-top: 6rem;
+}
+
 .prose h2,
 .prose h3,
 .prose h4 {
@@ -667,11 +676,12 @@ a:focus-visible {
   font-family: var(--mono);
   font-size: 0.55em;
   font-weight: 400;
-  opacity: 0;
+  opacity: 1;
   text-decoration: none !important;
   transition: opacity 180ms ease;
 }
 
+.prose h1:hover .heading-anchor,
 .prose h2:hover .heading-anchor,
 .prose h3:hover .heading-anchor,
 .prose h4:hover .heading-anchor,
