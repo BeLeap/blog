@@ -25,7 +25,7 @@ interface Props {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const base = import.meta.env.BASE_URL;
-const home = base.endsWith("/") ? base : `${base}/`;
+const home = base === "/" ? "/" : base.replace(/\/$/, "");
 const description = postExcerpt(post);
 ---
 
