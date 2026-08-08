@@ -3,14 +3,14 @@
 
 :root {
   --paper: #f4efe6;
-  --paper-deep: #e9e0d4;
-  --ink: #1f2924;
-  --ink-soft: #34413a;
-  --muted: #77766d;
-  --line: #d7cec1;
-  --accent: #c64236;
-  --accent-soft: #e9aaa1;
-  --white: #fffaf2;
+  --paper-deep: #eadbd1;
+  --ink: #42171e;
+  --ink-soft: #5b222b;
+  --muted: #726467;
+  --line: #d9c9c5;
+  --accent: #9f2638;
+  --accent-soft: #dd949d;
+  --white: #fffaf5;
   --serif: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
   --mono: "Space Mono", "SFMono-Regular", Consolas, monospace;
 }
@@ -175,7 +175,7 @@ a:focus-visible {
 }
 
 .rail-nav-link span {
-  color: var(--accent);
+  color: var(--accent-soft);
   font-family: var(--mono);
   font-size: 0.61rem;
   letter-spacing: 0.04em;
@@ -279,7 +279,7 @@ a:focus-visible {
 }
 
 .featured-arrow {
-  color: var(--accent);
+  color: var(--accent-soft);
   font-family: var(--mono);
   font-size: 1.6rem;
   line-height: 1;
