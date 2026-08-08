@@ -2,6 +2,7 @@
   description = "beleap's Astro field notes blog";
 
   inputs = {
+    self.submodules = true;
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
   };
 
