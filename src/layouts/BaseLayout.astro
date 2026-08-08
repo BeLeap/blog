@@ -11,6 +11,7 @@ const {
   description = "Personal posts by Changseo Jang.",
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const home = base.endsWith("/") ? base : `${base}/`;
 const profileLogo = "https://beleap.github.io/profile/profile-64.png";
 const pageTitle = title === "BeLeap" ? "BeLeap" : `${title} · BeLeap`;
 ---
@@ -34,7 +35,7 @@ const pageTitle = title === "BeLeap" ? "BeLeap" : `${title} · BeLeap`;
     <div class="site-shell">
       <aside class="site-rail" aria-label="사이트 탐색">
         <div class="rail-top">
-          <a class="brand" href={base} aria-label="BeLeap 홈">
+          <a class="brand" href={home} aria-label="BeLeap 홈">
             <img class="brand-mark" src={profileLogo} alt="" width="40" height="40" />
             <span class="brand-name">BeLeap</span>
           </a>
@@ -44,9 +45,9 @@ const pageTitle = title === "BeLeap" ? "BeLeap" : `${title} · BeLeap`;
             Personal posts.
           </p>
           <nav class="rail-nav" aria-label="주 메뉴">
-            <a href={base} class="rail-nav-link"><span>01</span>Home</a>
-            <a href={`${base}#posts`} class="rail-nav-link"><span>02</span>Posts</a>
-            <a href={`${base}#about`} class="rail-nav-link"><span>03</span>About</a>
+            <a href={home} class="rail-nav-link"><span>01</span>Home</a>
+            <a href={`${home}#posts`} class="rail-nav-link"><span>02</span>Posts</a>
+            <a href={`${home}#about`} class="rail-nav-link"><span>03</span>About</a>
           </nav>
         </div>
         <div class="rail-bottom">

@@ -31,7 +31,8 @@
             npmBuildScript = "build";
 
             preBuild = ''
-              export GITHUB_REPOSITORY="BeLeap/blog"
+              export SITE="https://beleap.dev"
+              export BASE_PATH="/"
             '';
 
             installPhase = ''

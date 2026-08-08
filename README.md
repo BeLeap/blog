@@ -61,4 +61,4 @@ Drafts are shown during local development and excluded from production builds. S
 
 `.github/workflows/deploy.yml` checks out the post submodule, installs Nix, builds `.#default` from the flake, and deploys the result with GitHub Pages. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
 
-The Astro base path is derived from `GITHUB_REPOSITORY`, so the same configuration works for `beleap.github.io` and a project site such as `beleap.github.io/blog`.
+The production build sets `SITE=https://beleap.dev` and `BASE_PATH=/` because the custom domain serves this project at the domain root. For another GitHub Pages project site, set `BASE_PATH` to the repository path, such as `/blog`.

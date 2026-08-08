@@ -20,7 +20,8 @@ export function formatDate(date: Date): string {
 }
 
 export function postHref(id: string): string {
-  return `${import.meta.env.BASE_URL}posts/${id}`;
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  return `${base}/posts/${id}`;
 }
 
 export function postExcerpt(post: Post): string {
