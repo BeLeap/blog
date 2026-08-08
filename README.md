@@ -59,6 +59,8 @@ Markdown supports inline `$...$` and display `$$...$$` LaTeX, rendered at build 
 
 Drafts are shown during local development and excluded from production builds. Set `PUBLIC_SHOW_DRAFTS=true` when a preview build needs to include them.
 
+Published posts are also available through the RSS feed at `/rss.xml` (or `${BASE_PATH}/rss.xml` for a project-site deployment).
+
 ## Deployment
 
 `.github/workflows/deploy.yml` checks out the post submodule, installs Nix, builds `.#default` from the flake, and deploys the result with GitHub Pages. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.

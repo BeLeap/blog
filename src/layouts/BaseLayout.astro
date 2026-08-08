@@ -12,6 +12,7 @@ const {
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const home = base === "/" ? "/" : base.replace(/\/$/, "");
+const rssHref = `${base.replace(/\/$/, "")}/rss.xml`;
 const profileLogo = "https://beleap.github.io/profile/profile-64.png";
 const pageTitle = title === "BeLeap" ? "BeLeap" : `${title} · BeLeap`;
 ---
@@ -28,6 +29,7 @@ const pageTitle = title === "BeLeap" ? "BeLeap" : `${title} · BeLeap`;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <link rel="canonical" href={Astro.url} />
+    <link rel="alternate" type="application/rss+xml" title="BeLeap RSS" href={rssHref} />
     <title>{pageTitle}</title>
   </head>
   <body>
