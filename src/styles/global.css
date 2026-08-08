@@ -202,6 +202,7 @@ a:focus-visible {
 .site-main {
   min-width: 0;
   overflow: hidden;
+  scroll-margin-top: 6rem;
 }
 
 .home-page {
@@ -317,7 +318,7 @@ a:focus-visible {
 
 .posts-section {
   padding: 0 0 clamp(6rem, 12vw, 10rem);
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 6rem;
 }
 
 .section-heading {
@@ -475,7 +476,7 @@ a:focus-visible {
 
 .about-section {
   padding: 0 0 clamp(6rem, 12vw, 10rem);
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 6rem;
 }
 
 .about-heading {
