@@ -55,6 +55,8 @@ tags: [Systems]
 
 Static files live in `blog-content/static/` and can be referenced from Markdown with `/static/...` paths. The build exposes them through the project-site base path when deployed to GitHub Pages.
 
+Markdown supports inline `$...$` and display `$$...$$` LaTeX, rendered at build time with KaTeX.
+
 Drafts are shown during local development and excluded from production builds. Set `PUBLIC_SHOW_DRAFTS=true` when a preview build needs to include them.
 
 ## Deployment

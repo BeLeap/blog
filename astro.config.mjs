@@ -1,4 +1,6 @@
 import { unified } from "@astrojs/markdown-remark";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 import { defineConfig } from "astro/config";
 import { rehypeHeadingLinks } from "./src/plugins/rehype-heading-links.mjs";
 import { rehypeStaticAssetPaths } from "./src/plugins/rehype-static-asset-paths.mjs";
@@ -16,7 +18,9 @@ export default defineConfig({
   trailingSlash: "never",
   markdown: {
     processor: unified({
+      remarkPlugins: [remarkMath],
       rehypePlugins: [
+        rehypeKatex,
         rehypeHeadingLinks,
         [rehypeStaticAssetPaths, { base }],
       ],

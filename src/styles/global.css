@@ -1,3 +1,4 @@
+@import "katex/dist/katex.min.css";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
 
 :root {
@@ -738,6 +739,17 @@ a:focus-visible {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.prose .katex-display {
+  margin: 2rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
+.prose .katex {
+  font-size: 1.05em;
 }
 
 .post-footer {
