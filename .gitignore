@@ -1,0 +1,9 @@
+node_modules/
+dist/
+result
+.astro/
+.direnv/
+.DS_Store
+.env
+.env.*
+!.env.example

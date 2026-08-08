@@ -1,0 +1,98 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  formatDate,
+  getVisiblePosts,
+  postExcerpt,
+  postHref,
+  sortPosts,
+} from "../lib/posts";
+
+const posts = sortPosts(getVisiblePosts(await getCollection("posts")));
+const featured = posts[0];
+const postCount = String(posts.length);
+---
+
+<BaseLayout title="BeLeap">
+  <div class="home-page">
+    <header class="hero">
+      <h1>Creating something<br /><em>unnecessary.</em></h1>
+    </header>
+
+    {featured && (
+      <section class="featured-section" aria-labelledby="featured-heading">
+        <div class="section-label" id="featured-heading"><span>00 / Latest post</span><span>{formatDate(featured.data.date)}</span></div>
+        <a class="featured-card" href={postHref(featured.id)}>
+          <div class="featured-card-top">
+            <span class="featured-index">{featured.data.tags[0] ?? "POST"}</span>
+            <span class="featured-arrow" aria-hidden="true">↗</span>
+          </div>
+          <h2>{featured.data.title}</h2>
+          <p>{postExcerpt(featured)}</p>
+          <div class="featured-card-foot">
+            <span>Open post</span>
+            <span>{featured.data.draft ? "Draft / preview" : "Published"}</span>
+          </div>
+        </a>
+      </section>
+    )}
+
+    <section id="posts" class="posts-section" aria-labelledby="posts-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-number">02</p>
+          <h2 id="posts-heading">Posts</h2>
+        </div>
+        <p class="section-note">{postCount} posts</p>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="post-list">
+          {posts.map((post, index) => (
+            <a class="post-row" href={postHref(post.id)}>
+              <span class="post-row-index">{String(index + 1).padStart(2, "0")}</span>
+              <div class="post-row-main">
+                <div class="post-row-meta">
+                  <span>{formatDate(post.data.date)}</span>
+                  {post.data.draft && <span class="draft-label">Draft</span>}
+                </div>
+                <h3>{post.data.title}</h3>
+                <p>{postExcerpt(post)}</p>
+              </div>
+              <span class="post-row-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>No published posts yet.</p>
+        </div>
+      )}
+    </section>
+
+    <section id="about" class="about-section" aria-labelledby="about-heading">
+      <div class="section-heading about-heading">
+        <div>
+          <p class="section-number">03</p>
+          <h2 id="about-heading">About</h2>
+        </div>
+      </div>
+      <div class="about-grid">
+        <p class="about-lead">Changseo Jang<br /><em>DevOps Engineer.</em></p>
+        <div class="about-copy">
+          <p>Infrastructure, Nix, Kubernetes, AWS, Rust, and developer tools.</p>
+          <div class="about-links">
+            <a class="text-link" href="https://github.com/BeLeap/resume/releases/latest/download/ChangseoJang_Resume.pdf" target="_blank" rel="noreferrer">Resume (PDF) <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/beleap" rel="me">GitHub profile <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="home-footer">
+      <span>© {new Date().getFullYear()} Changseo Jang</span>
+      <span>Astro / GitHub Pages</span>
+    </footer>
+  </div>
+</BaseLayout>
