@@ -644,6 +644,7 @@ a:focus-visible {
   scroll-margin-top: 6rem;
 }
 
+.prose h1,
 .prose h2,
 .prose h3,
 .prose h4 {
@@ -651,6 +652,11 @@ a:focus-visible {
   font-weight: 600;
   letter-spacing: -0.08em;
   line-height: 1.45;
+}
+
+.prose h1 {
+  margin: 4.5rem 0 1.2rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
 }
 
 .prose h2 {
