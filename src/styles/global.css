@@ -581,12 +581,6 @@ a:focus-visible {
   letter-spacing: 0.08em;
 }
 
-.post-header-meta span + span::before {
-  margin-right: 1.3rem;
-  color: var(--line);
-  content: "/";
-}
-
 .post-header h1 {
   max-width: 820px;
   margin: 1.5rem 0 1.5rem;

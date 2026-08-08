@@ -35,7 +35,6 @@ const description = postExcerpt(post);
       <a class="back-link" href={`${home}#posts`}><span aria-hidden="true">←</span> Back to posts</a>
       <div class="post-header-meta">
         <span>{formatDate(post.data.date)}</span>
-        <span>{post.data.tags[0] ?? "Post"}</span>
       </div>
       <h1>{post.data.title}</h1>
       {description && <p class="post-deck">{description}</p>}
