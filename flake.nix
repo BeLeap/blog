@@ -6,59 +6,55 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
   };
 
-  outputs = { nixpkgs, ... }:
-    let
-      systems = [
-        "aarch64-darwin"
-        "x86_64-darwin"
-        "aarch64-linux"
-        "x86_64-linux"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      packages = forAllSystems (system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
-        {
-          default = pkgs.buildNpmPackage {
-            pname = "beleap-blog";
-            version = "0.0.0";
-            src = ./.;
+  outputs = {nixpkgs, ...}: let
+    systems = [
+      "aarch64-darwin"
+      "x86_64-darwin"
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages = forAllSystems (system: let
+      pkgs = import nixpkgs {inherit system;};
+    in {
+      default = pkgs.buildNpmPackage {
+        pname = "beleap-blog";
+        version = "0.0.0";
+        src = ./.;
 
-            npmDepsHash = "sha256-7RO9E1EapF3j88qQn5zeL0myY4zt0rD43YTRQ9ss/ok=";
-            npmBuildScript = "build";
+        npmDepsHash = "sha256-7RO9E1EapF3j88qQn5zeL0myY4zt0rD43YTRQ9ss/ok=";
+        npmBuildScript = "build";
 
-            preBuild = ''
-              export SITE="https://beleap.dev"
-              export BASE_PATH="/"
-            '';
+        preBuild = ''
+          export PUBLIC_POSTHOG_PROJECT_TOKEN=phc_s8bgDNDCA6DAcquLuwmd3pGVfMDjjDHitZGLLVziSwCv
+          export PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
+          export SITE="https://beleap.dev"
+          export BASE_PATH="/"
+        '';
 
-            installPhase = ''
-              runHook preInstall
-              mkdir -p $out
-              cp -r dist/. $out/
-              runHook postInstall
-            '';
-          };
-        });
+        installPhase = ''
+          runHook preInstall
+          mkdir -p $out
+          cp -r dist/. $out/
+          runHook postInstall
+        '';
+      };
+    });
 
-      devShells = forAllSystems (system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
-        {
-          default = pkgs.mkShell {
-            packages = [
-              pkgs.nodejs_24
-            ];
+    devShells = forAllSystems (system: let
+      pkgs = import nixpkgs {inherit system;};
+    in {
+      default = pkgs.mkShell {
+        packages = [
+          pkgs.nodejs_24
+        ];
 
-            shellHook = ''
-              export ASTRO_TELEMETRY_DISABLED=1
-              echo "BeLeap — npm run dev"
-            '';
-          };
-        });
-    };
+        shellHook = ''
+          export ASTRO_TELEMETRY_DISABLED=1
+          echo "BeLeap — npm run dev"
+        '';
+      };
+    });
+  };
 }

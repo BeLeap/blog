@@ -1,4 +1,5 @@
 ---
+import PostHog from "../components/posthog.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -26,6 +27,7 @@ const googleAnalyticsId = "G-ZH852B37EW";
     <link rel="icon" type="image/png" href={profileLogo} />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <PostHog />
     {googleAnalyticsId && (
       <>
         <script
